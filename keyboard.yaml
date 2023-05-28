@@ -1,0 +1,72 @@
+units:
+  # Change "cx" and "cy" to "u" or "U" for MX spacing
+  kx: cx
+  ky: cy
+  stagger1: ky
+  stagger2: 0.3ky
+  stagger3: -0.6ky
+  stagger4: -0.2ky
+
+points:
+  key:
+    spread: kx
+    padding: ky
+  zones:
+    matrix: 
+      columns:
+        pinky:
+        ring:
+          key:
+            stagger: stagger1
+        middle:
+          key:
+            stagger: stagger2
+        index:
+          key:
+            stagger: stagger3
+        inner:
+          key:
+            stagger: stagger4
+      rows:
+        bottom:
+        home:
+        top:
+    thumbfan:
+      anchor:
+        ref: matrix_inner_bottom
+        shift: [-kx, -ky]
+      columns:
+        inner:
+        home:
+      rows:
+        thumb:
+  #rotate: -20
+
+outlines:
+  raw:
+    - what: rectangle
+      where: true
+      size: [kx, ky]
+  keys:
+    - what: rectangle
+      where: true
+      size: [kx-0.5, ky-0.5]
+  board_noround:
+    - what: rectangle
+      where: true
+      size: [kx, ky]
+    - what: polygon
+      operation: add
+      points:
+        - ref: thumbfan_inner_thumb
+          shift: [-0.5kx, 0]
+        - ref: matrix_index_bottom
+          shift: [-0.5kx, 0]
+        - ref: matrix_inner_bottom
+          shift: [0.5kx, 0]
+        - ref: thumbfan_home_thumb
+          shift: [0.5kx, 0]
+  board:
+    - what: outline
+      name: board_noround
+      fillet: 1
