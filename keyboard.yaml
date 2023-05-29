@@ -51,22 +51,69 @@ outlines:
     - what: rectangle
       where: true
       size: [kx-0.5, ky-0.5]
+  mcu_circle:
+    - what: circle
+      operation: add
+      where: matrix_middle_bottom
+      radius: 2.3kx
+    - what: polygon
+      operation: intersect
+      points:
+        - ref: matrix_middle_bottom
+          shift: [0, 0.5ky]
+        - ref: matrix_inner_bottom
+          shift: [0.5kx, 0.5ky]
+        - ref: thumbfan_home_thumb
+          shift: [0.5kx, -10ky] # Let the circle go anywhere it wants below the board
+        - ref: thumbfan_inner_thumb
+          shift: [-0.5kx, -10ky]
+        - ref: matrix_pinky_bottom
+          shift: [-0.5kx, -10ky]
+        - ref: matrix_pinky_home
+          shift: [-0.5kx, 0.5ky]
+
   board_noround:
     - what: rectangle
       where: true
       size: [kx, ky]
-    - what: polygon
+    - what: outline
+      name: mcu_circle
+      fillet: 1
       operation: add
-      points:
-        - ref: thumbfan_inner_thumb
-          shift: [-0.5kx, 0]
-        - ref: matrix_index_bottom
-          shift: [-0.5kx, 0]
-        - ref: matrix_inner_bottom
-          shift: [0.5kx, 0]
-        - ref: thumbfan_home_thumb
-          shift: [0.5kx, 0]
+
   board:
     - what: outline
       name: board_noround
       fillet: 1
+
+pcbs:
+  main:
+    outlines:
+      main:
+        outline: board
+    footprints:
+      choc_hotswap:
+        what: choc
+        where: true
+        params:
+          keycaps: true
+          reverse: true
+          hotswap: true
+          from: "{{column_net}}"
+          to: "{{colrow}}"
+      diode:
+        what: diode
+        where: true
+        params:
+          from: "{{colrow}}"
+          to: "{{row_net}}"
+        adjust:
+          shift: [0, -0.3ky]
+      xiao-ble:
+        what: xiao
+        params:
+          orientation: down # Reset button on the bottom
+        where:
+          ref: matrix_pinky_bottom
+          shift: [1.7kx, -0.1ky]
+          rotate: 130
