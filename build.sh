@@ -14,12 +14,11 @@ if [[ "$1" != "once" && "$1" != "" ]]; then
 fi
 
 OUTPUT_DIR=output
-KB_CONFIG=keyboard.yaml
 
 pcbnew_pid=
 
 build() {
-	node_modules/ergogen/src/cli.js $KB_CONFIG -o $OUTPUT_DIR
+	node_modules/ergogen/src/cli.js . -o $OUTPUT_DIR
 	if [[ "$pcbnew_pid" ]]; then
 		kill "$pcbnew_pid"
 	fi
@@ -35,6 +34,6 @@ if [[ "$1" == "once" ]]; then
 fi
 
 while true; do
-	inotifywait -e modify $KB_CONFIG
+	inotifywait -e modify config.yaml
 	build
 done

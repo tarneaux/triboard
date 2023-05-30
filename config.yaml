@@ -15,31 +15,45 @@ points:
     matrix: 
       columns:
         pinky:
+          key:
+            column_net: P10
         ring:
           key:
             stagger: stagger1
+            column_net: P9
         middle:
           key:
             stagger: stagger2
+            column_net: P8
         index:
           key:
             stagger: stagger3
+            column_net: P7
         inner:
           key:
             stagger: stagger4
+            column_net: P6
       rows:
         bottom:
+          row_net: P2
         home:
+          row_net: P1
         top:
+          row_net: P0
     thumbfan:
       anchor:
         ref: matrix_inner_bottom
         shift: [-kx, -ky]
       columns:
         inner:
+          key:
+            column_net: P7
         home:
+          key:
+            column_net: P6
       rows:
         thumb:
+          row_net: P3
   #rotate: -20
 
 outlines:
