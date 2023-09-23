@@ -1,18 +1,26 @@
 units:
   # Change "cx" and "cy" to "u" or "U" for MX spacing
-  kx: cx
-  ky: cy
+  kx: 1.04cx
+  ky: 1.04cy
+  lkx: kx + 2
+  lky: ky + 2
   stagger1: ky
   stagger2: 0.3ky
   stagger3: -0.6ky
   stagger4: -0.2ky
+  # distance from XIAO ref to border: 8.89mm
+  xiao_shift_x: -1.5
+  xiao_shift_y: 1ky+0.39
+  thumbfan_offset: 2.28
+  trrs_offset_x: -0.5lkx - 5
+  trrs_offset_y: 0.5lky + 3.122
 
 points:
   key:
-    spread: kx
-    padding: ky
+    spread: 1kx
+    padding: 1ky
   zones:
-    matrix: 
+    matrix:
       columns:
         pinky:
           key:
@@ -28,11 +36,11 @@ points:
         index:
           key:
             stagger: stagger3
-            column_net: P7
+            column_net: P6
         inner:
           key:
             stagger: stagger4
-            column_net: P6
+            column_net: P5
       rows:
         bottom:
           row_net: P2
@@ -43,18 +51,21 @@ points:
     thumbfan:
       anchor:
         ref: matrix_inner_bottom
-        shift: [-kx, -ky]
+        shift: [-2kx+thumbfan_offset, -ky]
       columns:
         inner:
           key:
-            column_net: P7
-        home:
+            column_net: P8
+        middle:
           key:
             column_net: P6
+        home:
+          key:
+            column_net: P5
       rows:
         thumb:
           row_net: P3
-  #rotate: -20
+  # rotate: -10
 
 outlines:
   raw:
@@ -65,40 +76,82 @@ outlines:
     - what: rectangle
       where: true
       size: [kx-0.5, ky-0.5]
-  mcu_circle:
-    - what: circle
-      operation: add
-      where: matrix_middle_bottom
-      radius: 2.3kx
-    - what: polygon
-      operation: intersect
-      points:
-        - ref: matrix_middle_bottom
-          shift: [0, 0.5ky]
-        - ref: matrix_inner_bottom
-          shift: [0.5kx, 0.5ky]
-        - ref: thumbfan_home_thumb
-          shift: [0.5kx, -10ky] # Let the circle go anywhere it wants below the board
-        - ref: thumbfan_inner_thumb
-          shift: [-0.5kx, -10ky]
-        - ref: matrix_pinky_bottom
-          shift: [-0.5kx, -10ky]
-        - ref: matrix_pinky_home
-          shift: [-0.5kx, 0.5ky]
 
   board_noround:
-    - what: rectangle
+    keys:
+      what: rectangle
       where: true
-      size: [kx, ky]
-    - what: outline
-      name: mcu_circle
-      fillet: 1
-      operation: add
+      size: [lkx, lky]
+    additional_polygon:
+      what: polygon
+      points:
+        - ref: matrix_middle_bottom
+          shift: [0, 0.5lky]
+        - ref: matrix_inner_top
+          shift: [0.5lkx, 0.5lky]
+        - ref: thumbfan_home_thumb
+          shift: [0.5lkx, 3ky + 0.5lky]
+        - ref: thumbfan_home_thumb
+          shift: [0.5lkx, -0.5lky]
+        - ref: thumbfan_inner_thumb
+          shift: [-0.5lkx, -0.5lky]
+        - ref: matrix_ring_bottom
+          shift: [0, -0.5lky]
+        - ref: matrix_ring_home
+          shift: [0, 0.5lky]
+    mcu:
+      what: polygon
+      points:
+        - ref: matrix_pinky_top
+          shift: [-12, 29.46]
+        - ref: matrix_pinky_top
+          shift: [9, 29.46]
+        - ref: matrix_pinky_top
+          shift: [0.5lkx, -0.5lky]
+        - ref: matrix_pinky_bottom
+          shift: [0.5lkx, -0.5lky]
+        - ref: matrix_pinky_bottom
+          shift: [-12, -0.5lky]
+    trrs:
+      what: polygon
+      points:
+        - ref: matrix_middle_top
+          shift: [trrs_offset_x-4.5, trrs_offset_y+4.5]
+        - ref: matrix_middle_top
+          shift: [trrs_offset_x + 15.5, trrs_offset_y - 15.5]
+        - ref: matrix_middle_top
+          shift: [trrs_offset_x - 24.5, trrs_offset_y - 15.5]
+    trrs_part_2:
+      # This one avoids a little cutout on the right side of the trrs
+      what: polygon
+      points:
+        - ref: matrix_middle_top
+          shift: [0, 0.5lky]
+        - ref: matrix_middle_top
+          shift: [0, -0.5lky]
+        - ref: matrix_middle_top
+          shift: [-lkx, -0.5lky]
+        - ref: matrix_middle_top
+          shift: [-lkx, 0.5lky]
 
   board:
     - what: outline
       name: board_noround
       fillet: 1
+    # M2 screw holes
+    # A few ones on the right, to hold magnet brackets
+    - what: circle
+      operation: subtract
+      where:
+        ref: matrix_inner_top
+        shift: [0.5lkx + thumbfan_offset - (1.6/2+1), 8] # 1mm from the edge (center is 1.8mm away)
+      radius: 1.6 / 2
+    - what: circle
+      operation: subtract
+      where:
+        ref: matrix_inner_top
+        shift: [0.5lkx, -8]
+      radius: 1.6 / 2
 
 pcbs:
   main:
@@ -116,18 +169,40 @@ pcbs:
           from: "{{column_net}}"
           to: "{{colrow}}"
       diode:
-        what: diode
+        what: pad_diode
         where: true
         params:
           from: "{{colrow}}"
           to: "{{row_net}}"
         adjust:
           shift: [0, -0.3ky]
-      xiao-ble:
+      xiao:
         what: xiao
         params:
-          orientation: down # Reset button on the bottom
+          orientation: up # Reset button on the bottom
         where:
-          ref: matrix_pinky_bottom
-          shift: [1.7kx, -0.1ky]
-          rotate: 130
+          ref: matrix_pinky_top
+          shift: [xiao_shift_x, xiao_shift_y]
+          rotate: 90
+      xiao-reverse:
+        what: xiao
+        params:
+          orientation: down
+        where:
+          ref: matrix_pinky_top
+          shift: [xiao_shift_x, xiao_shift_y + 2.5]
+          rotate: 90
+      trrs:
+        what: trrs
+        where:
+          ref: matrix_middle_top
+          shift: [trrs_offset_x, trrs_offset_y]
+          rotate: -45
+        params:
+          reverse: true
+          symmetric: true
+          A: VCC5
+          B: VCC5 # A and B overlap
+          C: GND
+          D: P7
+
