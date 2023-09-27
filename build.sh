@@ -20,7 +20,7 @@ pcbnew_pid=
 build() {
 	node_modules/ergogen/src/cli.js . -o $OUTPUT_DIR
 	if [[ "$pcbnew_pid" ]]; then
-		kill "$pcbnew_pid"
+		kill "$pcbnew_pid" || true
 	fi
 	pcbnew $OUTPUT_DIR/pcbs/main.kicad_pcb &
 	pcbnew_pid=$!
@@ -34,6 +34,6 @@ if [[ "$1" == "once" ]]; then
 fi
 
 while true; do
-	inotifywait -e modify config.yaml
+	inotifywait -e modify config.yaml || true
 	build
 done
