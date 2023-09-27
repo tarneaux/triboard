@@ -78,11 +78,10 @@ outlines:
       size: [kx-0.5, ky-0.5]
 
   board_noround:
-    keys:
-      what: rectangle
+    - what: rectangle
       where: true
       size: [lkx, lky]
-    additional_polygon:
+    - # Between board and thumbfan
       what: polygon
       points:
         - ref: matrix_middle_bottom
@@ -99,7 +98,7 @@ outlines:
           shift: [0, -0.5lky]
         - ref: matrix_ring_home
           shift: [0, 0.5lky]
-    mcu:
+    - # MCU
       what: polygon
       points:
         - ref: matrix_pinky_top
@@ -112,7 +111,7 @@ outlines:
           shift: [0.5lkx, -0.5lky]
         - ref: matrix_pinky_bottom
           shift: [-12, -0.5lky]
-    trrs:
+    - # trrs
       what: polygon
       points:
         - ref: matrix_middle_top
@@ -121,8 +120,7 @@ outlines:
           shift: [trrs_offset_x + 15.5, trrs_offset_y - 15.5]
         - ref: matrix_middle_top
           shift: [trrs_offset_x - 24.5, trrs_offset_y - 15.5]
-    trrs_part_2:
-      # This one avoids a little cutout on the right side of the trrs
+    - # Avoid a little cutout on the right side of the trrs
       what: polygon
       points:
         - ref: matrix_middle_top
@@ -134,24 +132,27 @@ outlines:
         - ref: matrix_middle_top
           shift: [-lkx, 0.5lky]
 
-  board:
-    - what: outline
-      name: board_noround
-      fillet: 1
+  screw_holes:
     # M2 screw holes
     # A few ones on the right, to hold magnet brackets
     - what: circle
-      operation: subtract
       where:
         ref: matrix_inner_top
         shift: [0.5lkx + thumbfan_offset - (1.6/2+1), 8] # 1mm from the edge (center is 1.8mm away)
       radius: 1.6 / 2
     - what: circle
-      operation: subtract
       where:
         ref: matrix_inner_top
-        shift: [0.5lkx, -8]
+        shift: [0.5lkx + thumbfan_offset - (1.6/2+1), -8]
       radius: 1.6 / 2
+
+  board:
+    - what: outline
+      name: board_noround
+      fillet: 1
+    - what: outline
+      operation: subtract
+      name: screw_holes
 
 pcbs:
   main:
