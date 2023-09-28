@@ -11,9 +11,11 @@ units:
   # distance from XIAO ref to border: 8.89mm
   xiao_shift_x: -1.5
   xiao_shift_y: 1ky+0.39
-  thumbfan_offset: 2.28
   trrs_offset_x: -0.5lkx - 5
   trrs_offset_y: 0.5lky + 3.122
+  screw_head_diameter: 3.7 # mm
+  screw_hole_diameter: 2.2 # mm, close fit for M2
+  screw_hole_clearance: 0.5 + 3.7/2 # mm, clearance for screw head from center of hole
 
 points:
   key:
@@ -51,7 +53,7 @@ points:
     thumbfan:
       anchor:
         ref: matrix_inner_bottom
-        shift: [-2kx+thumbfan_offset, -ky]
+        shift: [-2kx, -ky]
       columns:
         inner:
           key:
@@ -104,48 +106,48 @@ outlines:
         - ref: matrix_pinky_top
           shift: [-12, 29.46]
         - ref: matrix_pinky_top
-          shift: [9, 29.46]
+          shift: [9+lkx, 29.46]
         - ref: matrix_pinky_top
           shift: [0.5lkx, -0.5lky]
         - ref: matrix_pinky_bottom
           shift: [0.5lkx, -0.5lky]
         - ref: matrix_pinky_bottom
           shift: [-12, -0.5lky]
-    - # trrs
+    - # Bracket support, main board polygon extension
       what: polygon
       points:
         - ref: matrix_middle_top
-          shift: [trrs_offset_x-4.5, trrs_offset_y+4.5]
+          shift: [-0.5lkx, -0.5lky]
         - ref: matrix_middle_top
-          shift: [trrs_offset_x + 15.5, trrs_offset_y - 15.5]
+          shift: [0.5lkx, -0.5lky]
         - ref: matrix_middle_top
-          shift: [trrs_offset_x - 24.5, trrs_offset_y - 15.5]
-    - # Avoid a little cutout on the right side of the trrs
-      what: polygon
-      points:
+          shift: [0.5lkx, 0.5lky]
         - ref: matrix_middle_top
-          shift: [0, 0.5lky]
-        - ref: matrix_middle_top
-          shift: [0, -0.5lky]
-        - ref: matrix_middle_top
-          shift: [-lkx, -0.5lky]
-        - ref: matrix_middle_top
-          shift: [-lkx, 0.5lky]
+          shift: [0.5cx+2*screw_hole_clearance, 0.5lky]
+        - ref: matrix_inner_top
+          shift: [-4, 0.5lky+6]
+        - ref: matrix_inner_top
+          shift: [0.5lkx, 0.5lky+6]
+        - ref: matrix_inner_top
+          shift: [0.5lkx, 0.5lky]
 
   screw_holes:
     # M2 screw holes
-    # A few ones on the right, to hold magnet brackets
     - what: circle
       where:
-        ref: matrix_inner_top
-        shift: [0.5lkx + thumbfan_offset - (1.6/2+1), 8] # 1mm from the edge (center is 1.8mm away)
-      radius: 1.6 / 2
+        ref: matrix_middle_top
+        shift: [0.5cx + screw_hole_clearance, 0.5lky - screw_hole_clearance]
+      radius: screw_hole_diameter/2
     - what: circle
       where:
-        ref: matrix_inner_top
-        shift: [0.5lkx + thumbfan_offset - (1.6/2+1), -8]
-      radius: 1.6 / 2
-
+        ref: matrix_index_top
+        shift: [-kx + 0.5cx + screw_hole_clearance, 0.5cy + screw_hole_clearance]
+      radius: screw_hole_diameter/2
+    - what: circle
+      where:
+        ref: matrix_index_top
+        shift: [0.5kx + 5 - screw_hole_clearance, 0.5cy + screw_hole_clearance]
+      radius: screw_hole_diameter/2
   board:
     - what: outline
       name: board_noround
@@ -196,9 +198,9 @@ pcbs:
       trrs:
         what: trrs
         where:
-          ref: matrix_middle_top
-          shift: [trrs_offset_x, trrs_offset_y]
-          rotate: -45
+          ref: matrix_inner_top
+          shift: [8.36, 0.5cy+0.75 + (ky-cy)] # 0.75=ref to border
+          rotate: -90
         params:
           reverse: true
           symmetric: true
