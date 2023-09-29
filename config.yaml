@@ -72,19 +72,6 @@ points:
   # rotate: -10
 
 outlines:
-  bracket_common:
-    # Part of both main board and bracket where they attach
-    - what: polygon
-      points:
-        - ref: matrix_middle_top # top left
-          shift: [0.5cx, 0.5lky]
-        - ref: matrix_middle_top # top right
-          shift: [kx+0.5cx+5.36, 0.5lky]
-        - ref: matrix_index_top # bottom right
-          shift: [0.5cx+5.36, 0.5cy]
-        - ref: matrix_index_top # bottom left
-          shift: [-1kx+0.5cx, 0.5cy]
-
   board_noround:
     - what: rectangle
       where: true
@@ -130,51 +117,11 @@ outlines:
           shift: [0.5lkx, 0.5cy]
         - ref: matrix_inner_top # bottom left
           shift: [-3kx, 0.5cy]
-    - what: outline
-      name: bracket_common
-
-  screw_holes:
-    # M2 screw holes
-    - what: circle # Top left
-      where:
-        ref: matrix_middle_top # top left
-        shift: [0.5cx+screw_hole_clearance, 0.5lky-screw_hole_clearance]
-      radius: screw_hole_diameter/2
-    - what: circle # Top right
-      where:
-        ref: matrix_middle_top # top right
-        shift: [kx+0.5cx+5.36-screw_hole_clearance, 0.5lky-screw_hole_clearance]
-      radius: screw_hole_diameter/2
-    - what: circle # Bottom right
-      where:
-        ref: matrix_index_top
-        shift: [0.5cx+5.36-screw_hole_clearance, 0.5cy+screw_hole_clearance]
-      radius: screw_hole_diameter/2
-    - what: circle # Bottom left
-      where:
-        ref: matrix_index_top # bottom left
-        shift: [-1kx+0.5cx+screw_hole_clearance, 0.5cy+screw_hole_clearance]
-      radius: screw_hole_diameter/2
-  
-  bracket_noround:
-    - what: outline
-      name: bracket_common
-
-  bracket:
-    - what: outline
-      name: bracket_noround
-      fillet: 1
-    - what: outline
-      operation: subtract
-      name: screw_holes
 
   board:
     - what: outline
       name: board_noround
       fillet: 1
-    - what: outline
-      operation: subtract
-      name: screw_holes
 
 pcbs:
   main:
@@ -228,7 +175,3 @@ pcbs:
           B: VCC5 # A and B overlap
           C: GND
           D: P7
-  bracket:
-    outlines:
-      bracket:
-        outline: bracket
