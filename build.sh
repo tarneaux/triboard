@@ -15,15 +15,21 @@ fi
 
 OUTPUT_DIR=output
 
-pcbnew_pid=
+pcbnew_pid1=
+pcbnew_pid2=
 
 build() {
 	node_modules/ergogen/src/cli.js . -o $OUTPUT_DIR
-	if [[ "$pcbnew_pid" ]]; then
-		kill "$pcbnew_pid" || true
+	if [[ "$pcbnew_pid1" ]]; then
+		kill "$pcbnew_pid1" || true
 	fi
 	pcbnew $OUTPUT_DIR/pcbs/main.kicad_pcb &
-	pcbnew_pid=$!
+	pcbnew_pid1=$!
+	if [[ "$pcbnew_pid2" ]]; then
+		kill "$pcbnew_pid2" || true
+	fi
+	pcbnew $OUTPUT_DIR/pcbs/bracket.kicad_pcb &
+	pcbnew_pid2=$!
 }
 
 

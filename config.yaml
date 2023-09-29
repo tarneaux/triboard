@@ -2,6 +2,8 @@ units:
   # Change "cx" and "cy" to "u" or "U" for MX spacing
   kx: 1.04cx
   ky: 1.04cy
+  ksx: kx-cx
+  ksy: ky-cy
   lkx: kx + 2
   lky: ky + 2
   stagger1: ky
@@ -11,11 +13,11 @@ units:
   # distance from XIAO ref to border: 8.89mm
   xiao_shift_x: -1.5
   xiao_shift_y: 1ky+0.39
-  trrs_offset_x: -0.5lkx - 5
-  trrs_offset_y: 0.5lky + 3.122
   screw_head_diameter: 3.7 # mm
   screw_hole_diameter: 2.2 # mm, close fit for M2
   screw_hole_clearance: 0.5 + 3.7/2 # mm, clearance for screw head from center of hole
+  trrs_width: 6.1
+  trrs_length: 14.1
 
 points:
   key:
@@ -70,14 +72,18 @@ points:
   # rotate: -10
 
 outlines:
-  raw:
-    - what: rectangle
-      where: true
-      size: [kx, ky]
-  keys:
-    - what: rectangle
-      where: true
-      size: [kx-0.5, ky-0.5]
+  bracket_common:
+    # Part of both main board and bracket where they attach
+    - what: polygon
+      points:
+        - ref: matrix_middle_top # top left
+          shift: [0.5cx, 0.5lky]
+        - ref: matrix_middle_top # top right
+          shift: [kx+0.5cx+5.36, 0.5lky]
+        - ref: matrix_index_top # bottom right
+          shift: [0.5cx+5.36, 0.5cy]
+        - ref: matrix_index_top # bottom left
+          shift: [-1kx+0.5cx, 0.5cy]
 
   board_noround:
     - what: rectangle
@@ -113,41 +119,55 @@ outlines:
           shift: [0.5lkx, -0.5lky]
         - ref: matrix_pinky_bottom
           shift: [-12, -0.5lky]
-    - # Bracket support, main board polygon extension
+    - # TRRS
       what: polygon
       points:
-        - ref: matrix_middle_top
-          shift: [-0.5lkx, -0.5lky]
-        - ref: matrix_middle_top
-          shift: [0.5lkx, -0.5lky]
-        - ref: matrix_middle_top
-          shift: [0.5lkx, 0.5lky]
-        - ref: matrix_middle_top
-          shift: [0.5cx+2*screw_hole_clearance, 0.5lky]
-        - ref: matrix_inner_top
-          shift: [-4, 0.5lky+6]
-        - ref: matrix_inner_top
-          shift: [0.5lkx, 0.5lky+6]
-        - ref: matrix_inner_top
-          shift: [0.5lkx, 0.5lky]
+        - ref: matrix_inner_top # top left
+          shift: [-3kx, 0.5cy+trrs_width+2*ksx]
+        - ref: matrix_inner_top # top right
+          shift: [0.5lkx, 0.5cy+trrs_width+2*ksx]
+        - ref: matrix_inner_top # bottom right
+          shift: [0.5lkx, 0.5cy]
+        - ref: matrix_inner_top # bottom left
+          shift: [-3kx, 0.5cy]
+    - what: outline
+      name: bracket_common
 
   screw_holes:
     # M2 screw holes
-    - what: circle
+    - what: circle # Top left
       where:
-        ref: matrix_middle_top
-        shift: [0.5cx + screw_hole_clearance, 0.5lky - screw_hole_clearance]
+        ref: matrix_middle_top # top left
+        shift: [0.5cx+screw_hole_clearance, 0.5lky-screw_hole_clearance]
       radius: screw_hole_diameter/2
-    - what: circle
+    - what: circle # Top right
+      where:
+        ref: matrix_middle_top # top right
+        shift: [kx+0.5cx+5.36-screw_hole_clearance, 0.5lky-screw_hole_clearance]
+      radius: screw_hole_diameter/2
+    - what: circle # Bottom right
       where:
         ref: matrix_index_top
-        shift: [-kx + 0.5cx + screw_hole_clearance, 0.5cy + screw_hole_clearance]
+        shift: [0.5cx+5.36-screw_hole_clearance, 0.5cy+screw_hole_clearance]
       radius: screw_hole_diameter/2
-    - what: circle
+    - what: circle # Bottom left
       where:
-        ref: matrix_index_top
-        shift: [0.5kx + 5 - screw_hole_clearance, 0.5cy + screw_hole_clearance]
+        ref: matrix_index_top # bottom left
+        shift: [-1kx+0.5cx+screw_hole_clearance, 0.5cy+screw_hole_clearance]
       radius: screw_hole_diameter/2
+  
+  bracket_noround:
+    - what: outline
+      name: bracket_common
+
+  bracket:
+    - what: outline
+      name: bracket_noround
+      fillet: 1
+    - what: outline
+      operation: subtract
+      name: screw_holes
+
   board:
     - what: outline
       name: board_noround
@@ -208,4 +228,7 @@ pcbs:
           B: VCC5 # A and B overlap
           C: GND
           D: P7
-
+  bracket:
+    outlines:
+      bracket:
+        outline: bracket
