@@ -8,9 +8,7 @@ units:
   # From that, get the spacing between keys
   ksx: px-kx
   ksy: py-ky
-  # Values with 2mm of spacing around the board
-  lpx: px + 2
-  lpy: py + 2
+  lpx: px + 1
   
   # Stagger for all of the different columns
   stagger1: py # ring column one key above the pinky column
@@ -85,7 +83,7 @@ outlines:
   board_noround:
     - what: rectangle
       where: true
-      size: [lpx, lpy]
+      size: [lpx, py]
     - # Between board and thumbfan
       what: polygon
       points:
@@ -94,22 +92,24 @@ outlines:
         - ref: matrix_pinky_bottom # Top right
           shift: [4cx, 1cy]
         - ref: matrix_pinky_bottom # Bottom right
-          shift: [4cx, -0.5lpy]
+          shift: [4cx, -0.5py]
         - ref: matrix_pinky_bottom # Bottom left
-          shift: [-0.5lpx, -0.5lpy]
+          shift: [-0.5lpx, -0.5py]
     - # MCU
       what: polygon
       points:
-        - ref: matrix_pinky_top
+        - ref: matrix_pinky_top # Top left
           shift: [-12, 29.46]
-        - ref: matrix_pinky_top
+        - ref: matrix_pinky_top # Top right
           shift: [9+lpx, 29.46]
-        - ref: matrix_pinky_top
-          shift: [0.5lpx, -0.5lpy]
-        - ref: matrix_pinky_bottom
-          shift: [0.5lpx, -0.5lpy]
-        - ref: matrix_pinky_bottom
-          shift: [-12, -0.5lpy]
+        - ref: matrix_pinky_top # Top-middle right (for link with matrix)
+          shift: [9+0.5lpx, -0.5py]
+        - ref: matrix_pinky_top # Still
+          shift: [0.5lpx, -0.5py]
+        - ref: matrix_pinky_bottom # Bottom-middle right (for link with matrix)
+          shift: [0.5lpx, -0.5py]
+        - ref: matrix_pinky_bottom # Bottom left
+          shift: [-12, -0.5py]
     - # TRRS
       what: polygon
       points:
