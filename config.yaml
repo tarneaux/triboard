@@ -1,28 +1,38 @@
 units:
-  # Change "cx" and "cy" to "u" or "U" for MX spacing
-  kx: 1.04cx
-  ky: 1.04cy
-  ksx: kx-cx
-  ksy: ky-cy
-  lkx: kx + 2
-  lky: ky + 2
-  stagger1: ky
-  stagger2: 0.3ky
-  stagger3: -0.6ky
-  stagger4: -0.2ky
-  # distance from XIAO ref to border: 8.89mm
-  xiao_shift_x: -1.5
-  xiao_shift_y: 1ky+0.39
+  # Size of each key. cx and cy for choc, u and U for MX.
+  kx: cx
+  ky: cy
+  # key spread and padding
+  px: 1.04kx
+  py: 1.04ky
+  # From that, get the spacing between keys
+  ksx: px-kx
+  ksy: py-ky
+  # Values with 2mm of spacing around the board
+  lpx: px + 2
+  lpy: py + 2
+  
+  # Stagger for all of the different columns
+  stagger1: py # ring column one key above the pinky column
+  stagger2: 0.3py # middle column .3 key above the ring column
+  stagger3: -0.6py # index
+  stagger4: -0.2py # inner
+
+  # Sizes of things
   screw_head_diameter: 3.7 # mm
   screw_hole_diameter: 2.2 # mm, close fit for M2
   screw_hole_clearance: 0.5 + 3.7/2 # mm, clearance for screw head from center of hole
   trrs_width: 6.1
   trrs_length: 14.1
 
+  # Other constants
+  xiao_shift_x: -1.5
+  xiao_shift_y: 1py+0.39
+
 points:
   key:
-    spread: 1kx
-    padding: 1ky
+    spread: 1px
+    padding: 1py
   zones:
     matrix:
       columns:
@@ -55,7 +65,7 @@ points:
     thumbfan:
       anchor:
         ref: matrix_inner_bottom
-        shift: [-2kx, -ky]
+        shift: [-2px, -py]
       columns:
         inner:
           key:
@@ -75,48 +85,48 @@ outlines:
   board_noround:
     - what: rectangle
       where: true
-      size: [lkx, lky]
+      size: [lpx, lpy]
     - # Between board and thumbfan
       what: polygon
       points:
         - ref: matrix_middle_bottom
-          shift: [0, 0.5lky]
+          shift: [0, 0.5lpy]
         - ref: matrix_inner_top
-          shift: [0.5lkx, 0.5lky]
+          shift: [0.5lpx, 0.5lpy]
         - ref: thumbfan_home_thumb
-          shift: [0.5lkx, 3ky + 0.5lky]
+          shift: [0.5lpx, 3py + 0.5lpy]
         - ref: thumbfan_home_thumb
-          shift: [0.5lkx, -0.5lky]
+          shift: [0.5lpx, -0.5lpy]
         - ref: thumbfan_inner_thumb
-          shift: [-0.5lkx, -0.5lky]
+          shift: [-0.5lpx, -0.5lpy]
         - ref: matrix_ring_bottom
-          shift: [0, -0.5lky]
+          shift: [0, -0.5lpy]
         - ref: matrix_ring_home
-          shift: [0, 0.5lky]
+          shift: [0, 0.5lpy]
     - # MCU
       what: polygon
       points:
         - ref: matrix_pinky_top
           shift: [-12, 29.46]
         - ref: matrix_pinky_top
-          shift: [9+lkx, 29.46]
+          shift: [9+lpx, 29.46]
         - ref: matrix_pinky_top
-          shift: [0.5lkx, -0.5lky]
+          shift: [0.5lpx, -0.5lpy]
         - ref: matrix_pinky_bottom
-          shift: [0.5lkx, -0.5lky]
+          shift: [0.5lpx, -0.5lpy]
         - ref: matrix_pinky_bottom
-          shift: [-12, -0.5lky]
+          shift: [-12, -0.5lpy]
     - # TRRS
       what: polygon
       points:
         - ref: matrix_inner_top # top left
-          shift: [-3kx, 0.5cy+trrs_width+2*ksx]
+          shift: [-3px, 0.5ky+trrs_width+2*ksx]
         - ref: matrix_inner_top # top right
-          shift: [0.5lkx, 0.5cy+trrs_width+2*ksx]
+          shift: [0.5lpx, 0.5ky+trrs_width+2*ksx]
         - ref: matrix_inner_top # bottom right
-          shift: [0.5lkx, 0.5cy]
+          shift: [0.5lpx, 0.5ky]
         - ref: matrix_inner_top # bottom left
-          shift: [-3kx, 0.5cy]
+          shift: [-3px, 0.5ky]
 
   board:
     - what: outline
@@ -145,7 +155,7 @@ pcbs:
           from: "{{colrow}}"
           to: "{{row_net}}"
         adjust:
-          shift: [0, -0.3ky]
+          shift: [0, -0.3py]
       xiao:
         what: xiao
         params:
@@ -166,7 +176,7 @@ pcbs:
         what: trrs
         where:
           ref: matrix_inner_top
-          shift: [8.36, 0.5cy+0.75 + (ky-cy)] # 0.75=ref to border
+          shift: [8.36, 0.5ky+0.75 + (py-ky)] # 0.75=ref to border
           rotate: -90
         params:
           reverse: true
