@@ -140,8 +140,8 @@ pcbs:
           keycaps: true
           reverse: true
           hotswap: true
-          from: "{{column_net}}"
-          to: "{{colrow}}"
+          from: "{{colrow}}"
+          to: "{{column_net}}"
       diode:
         what: pad_diode
         where: true
@@ -150,6 +150,34 @@ pcbs:
           to: "{{row_net}}"
         adjust:
           shift: [0, -0.3py]
+      diode_via_1:
+        what: via
+        where: true
+        params:
+          net: "{{colrow}}"
+        adjust:
+          shift: [2.8, -0.3py]
+      diode_via_2:
+        what: via
+        where: true
+        params:
+          net: "{{row_net}}"
+        adjust:
+          shift: [-2.8, -0.3py]
+      key_via_1:
+        what: via
+        where: true
+        params:
+          net: "{{column_net}}"
+        adjust:
+          shift: [0, 3.67]
+      key_via_2:
+        what: via
+        where: true
+        params:
+          net: "{{colrow}}"
+        adjust:
+          shift: [0, 2.67]
       xiao:
         what: xiao
         params:
