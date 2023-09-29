@@ -89,20 +89,14 @@ outlines:
     - # Between board and thumbfan
       what: polygon
       points:
-        - ref: matrix_middle_bottom
-          shift: [0, 0.5lpy]
-        - ref: matrix_inner_top
-          shift: [0.5lpx, 0.5lpy]
-        - ref: thumbfan_home_thumb
-          shift: [0.5lpx, 3py + 0.5lpy]
-        - ref: thumbfan_home_thumb
-          shift: [0.5lpx, -0.5lpy]
-        - ref: thumbfan_inner_thumb
+        - ref: matrix_pinky_bottom # Top left
+          shift: [-0.5lpx, 1cy]
+        - ref: matrix_pinky_bottom # Top right
+          shift: [4cx, 1cy]
+        - ref: matrix_pinky_bottom # Bottom right
+          shift: [4cx, -0.5lpy]
+        - ref: matrix_pinky_bottom # Bottom left
           shift: [-0.5lpx, -0.5lpy]
-        - ref: matrix_ring_bottom
-          shift: [0, -0.5lpy]
-        - ref: matrix_ring_home
-          shift: [0, 0.5lpy]
     - # MCU
       what: polygon
       points:
