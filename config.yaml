@@ -36,15 +36,15 @@ points:
       columns:
         pinky:
           key:
-            column_net: P10
+            column_net: P3
         ring:
           key:
             stagger: stagger1
-            column_net: P9
+            column_net: P4
         middle:
           key:
             stagger: stagger2
-            column_net: P8
+            column_net: P5
         index:
           key:
             stagger: stagger3
@@ -52,14 +52,14 @@ points:
         inner:
           key:
             stagger: stagger4
-            column_net: P5
+            column_net: P8
       rows:
         bottom:
-          row_net: P2
+          row_net: P0
         home:
           row_net: P1
         top:
-          row_net: P0
+          row_net: P2
     thumbfan:
       anchor:
         ref: matrix_inner_bottom
@@ -67,16 +67,16 @@ points:
       columns:
         inner:
           key:
-            column_net: P8
+            column_net: P5
         middle:
           key:
             column_net: P6
         home:
           key:
-            column_net: P5
+            column_net: P8
       rows:
         thumb:
-          row_net: P3
+          row_net: P9
   # rotate: -10
 
 outlines:
@@ -209,7 +209,7 @@ pcbs:
           orientation: up # Reset button on the bottom
         where:
           ref: matrix_pinky_top
-          shift: [xiao_shift_x, xiao_shift_y]
+          shift: [xiao_shift_x, xiao_shift_y + 2.5]
           rotate: 90
       xiao-reverse:
         what: xiao
@@ -217,7 +217,7 @@ pcbs:
           orientation: down
         where:
           ref: matrix_pinky_top
-          shift: [xiao_shift_x, xiao_shift_y + 2.5]
+          shift: [xiao_shift_x, xiao_shift_y]
           rotate: 90
       trrs:
         what: trrs
