@@ -77,7 +77,6 @@ points:
       rows:
         thumb:
           row_net: P9
-  # rotate: -10
 
 outlines:
   board_noround:
