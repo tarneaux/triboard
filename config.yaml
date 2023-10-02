@@ -229,6 +229,11 @@ pcbs:
           B: VCC5 # A and B overlap
           C: GND
           D: P7
+      mountinghole_inner_top:
+        what: mountinghole
+        where:
+          ref: matrix_inner_top
+          shift: [(-3.74-0.5cx-ksx)/2, 0.5ky + ksy + trrs_width/2]
   plate:
     outlines:
       plate:
