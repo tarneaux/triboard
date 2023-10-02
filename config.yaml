@@ -17,11 +17,9 @@ units:
   stagger4: -0.2py # inner
 
   # Sizes of things
-  screw_head_diameter: 3.7 # mm
-  screw_hole_diameter: 2.2 # mm, close fit for M2
-  screw_hole_clearance: 0.5 + 3.7/2 # mm, clearance for screw head from center of hole
   trrs_width: 6.1
   trrs_length: 14.1
+  mountinghole_radius: 2.45
 
   # Other constants
   xiao_shift_x: -1.5
@@ -87,11 +85,11 @@ outlines:
       what: polygon
       points:
         - ref: matrix_pinky_bottom # Top left
-          shift: [-0.5lpx, 1cy]
+          shift: [-0.5lpx, 1ky]
         - ref: matrix_pinky_bottom # Top right
-          shift: [4cx, 1cy]
+          shift: [4kx, 1ky]
         - ref: matrix_pinky_bottom # Bottom right
-          shift: [4cx, -0.5py]
+          shift: [4kx, -0.5py]
         - ref: matrix_pinky_bottom # Bottom left
           shift: [-0.5lpx, -0.5py]
     - # MCU
@@ -113,9 +111,9 @@ outlines:
       what: polygon
       points:
         - ref: matrix_inner_top # top left
-          shift: [-3px, 0.5ky+trrs_width+2*ksx]
+          shift: [-3px, 0.5ky+trrs_width+2*ksy]
         - ref: matrix_inner_top # top right
-          shift: [0.5lpx, 0.5ky+trrs_width+2*ksx]
+          shift: [0.5lpx, 0.5ky+trrs_width+2*ksy]
         - ref: matrix_inner_top # bottom right
           shift: [0.5lpx, 0.5ky]
         - ref: matrix_inner_top # bottom left
@@ -222,7 +220,7 @@ pcbs:
         what: trrs
         where:
           ref: matrix_inner_top
-          shift: [8.36, 0.5ky+0.75 + (py-ky)] # 0.75=ref to border
+          shift: [8.36, 0.5ky + 0.75 + ksy] # 0.75=ref to border
           rotate: -90
         params:
           reverse: true
