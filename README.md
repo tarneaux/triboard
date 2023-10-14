@@ -1,1 +1,7 @@
-NOTE: This project uses ergogen v4 and is therefore incompatible with a lot of ergogen examples.
+WIP
+
+To build the keyboard with ergogen and open the PCB in KiCad's PCBnew, run:
+```sh
+npm install
+./build.sh # Automatically update the PCB and reopen pcbnew whenever config.yaml changes
+```
