@@ -128,15 +128,15 @@ outlines:
     - what: rectangle
       where: true
       size: [px, py]
-    - # Between board and thumbfan, but leaving space for battery
+    - # Between the inner thumb key and the board
       what: polygon
       points:
         - ref: thumbfan_inner_thumb # Top left
           shift: [-0.5px, 2py]
         - ref: thumbfan_inner_thumb # Top right
-          shift: [2px, 2py]
+          shift: [1px, 2py]
         - ref: thumbfan_inner_thumb # Bottom right
-          shift: [2px, -0.5py]
+          shift: [1px, -0.5py]
         - ref: thumbfan_inner_thumb # Bottom left
           shift: [-0.5px, -0.5py]
 
