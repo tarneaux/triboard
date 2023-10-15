@@ -19,8 +19,6 @@ units:
   # Sizes of things
   mountinghole_radius: 2.45
   mountinghole_diameter: 2*mountinghole_radius
-  mountinghole_pad: 0.5
-  mountinghole_pad_radius: mountinghole_radius+mountinghole_pad # Minimum space between center of hole and surrounding footprints
 
   # Other constants
   xiao_shift_x: -1.5
@@ -109,9 +107,9 @@ outlines:
       what: polygon
       points:
         - ref: matrix_index_top # Top left
-          shift: [-0.5lpx, 0.5py+2*mountinghole_radius+1]
+          shift: [-0.5lpx, 0.5ky+2*mountinghole_radius]
         - ref: matrix_index_top # Top right
-          shift: [0.5lpx, 0.5py+2*mountinghole_radius+1]
+          shift: [0.5lpx, 0.5ky+2*mountinghole_radius]
         - ref: matrix_index_top # Bottom right
           shift: [0.5lpx, 0.5py]
         - ref: matrix_index_top # Bottom left
@@ -221,8 +219,8 @@ pcbs:
           ref: matrix_index_top
           shift: 
             [
-              -0.5cx+mountinghole_pad_radius,
-              0.5ky+mountinghole_pad_radius
+              -0.5cx+mountinghole_radius,
+              0.5ky+mountinghole_radius
             ]
       mountinghole_middle_bottom:
         what: mountinghole
@@ -230,7 +228,7 @@ pcbs:
           ref: matrix_middle_bottom
           shift:
             [
-              -0.5cx-0.5ksx+mountinghole_pad_radius,
+              -0.5cx-0.5ksx+mountinghole_radius,
               (-0.5ky-0.5ky-stagger2)/2
             ]
       battery_pad:
@@ -246,7 +244,7 @@ pcbs:
         what: slider
         where:
           ref: matrix_index_top
-          shift: [4, 0.5py+2*mountinghole_radius-1]
+          shift: [4, 0.5ky+2*mountinghole_radius-2]
           rotate: 0
         params:
           from: BAT+
@@ -256,7 +254,7 @@ pcbs:
         what: slider
         where:
           ref: matrix_index_top
-          shift: [4, 0.5py+2*mountinghole_radius-1]
+          shift: [4, 0.5ky+2*mountinghole_radius-2]
           rotate: 0
         params:
           from: BAT+
