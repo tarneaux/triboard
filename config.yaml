@@ -238,7 +238,11 @@ pcbs:
         what: mountinghole
         where:
           ref: matrix_middle_bottom
-          shift: [-0.5cx-0.5ksx+mountinghole_radius, -0.5ky-0.5ksx-mountinghole_radius]
+          shift:
+            [
+              -0.5cx-0.5ksx+mountinghole_radius,
+              (-0.5ky-0.5ky-stagger2)/2
+            ]
   plate:
     outlines:
       plate:
