@@ -122,9 +122,52 @@ outlines:
       fillet: 1
 
   plate_base:
-    - what: rectangle
-      where: true
-      size: [px, py]
+    - # Main board
+      what: polygon
+      points:
+        - ref: matrix_pinky_top # Top left
+          shift: [-0.5cx, 0.5ky]
+        - ref: matrix_pinky_top
+          shift: [0.5px, 0.5ky]
+        - ref: matrix_ring_top
+          shift: [-0.5px, 0.5ky]
+        - ref: matrix_ring_top
+          shift: [0.5px, 0.5ky]
+        - ref: matrix_middle_top
+          shift: [-0.5px, 0.5ky]
+        - ref: matrix_middle_top
+          shift: [0.5px, 0.5ky]
+        - ref: matrix_index_top
+          shift: [-0.5px, 0.5ky]
+        - ref: matrix_index_top
+          shift: [0.5px, 0.5ky]
+        - ref: matrix_inner_top
+          shift: [-0.5px, 0.5ky]
+        - ref: matrix_inner_top # Top right
+          shift: [0.5cx, 0.5ky]
+        - ref: matrix_inner_bottom
+          shift: [0.5cx, -0.5py]
+        - ref: thumbfan_home_thumb # Bottom right
+          shift: [0.5cx, -0.5py]
+        - ref: thumbfan_inner_thumb
+          shift: [-0.5px, -0.5py]
+        - ref: matrix_index_bottom
+          shift: [0.5px, -0.5py]
+        - ref: matrix_index_bottom
+          shift: [-0.5px, -0.5py]
+        - ref: matrix_middle_bottom
+          shift: [0.5px, -0.5py]
+        - ref: matrix_middle_bottom
+          shift: [-0.5px, -0.5py]
+        - ref: matrix_ring_bottom
+          shift: [0.5px, -0.5py]
+        - ref: matrix_ring_bottom
+          shift: [-0.5px, -0.5py]
+        - ref: matrix_pinky_bottom 
+          shift: [0.5px, -0.5py]
+        - ref: matrix_pinky_bottom # Bottom left
+          shift: [-0.5cx, -0.5py]
+
     - # Between the inner thumb key and the board
       what: polygon
       points:
@@ -136,6 +179,17 @@ outlines:
           shift: [1px, -0.5py]
         - ref: thumbfan_inner_thumb # Bottom left
           shift: [-0.5px, -0.5py]
+    - # Top right screw hole
+      what: polygon
+      points:
+        - ref: matrix_index_top # Top left
+          shift: [-0.5lpx, 0.5ky+2*mountinghole_radius]
+        - ref: matrix_index_top # Top right
+          shift: [-0.5cx+2*mountinghole_radius, 0.5ky+2*mountinghole_radius]
+        - ref: matrix_index_top # Bottom right
+          shift: [-0.5cx+2*mountinghole_radius, 0]
+        - ref: matrix_index_top # Bottom left
+          shift: [-0.5lpx, 0.5]
 
   plate:
     - what: outline
