@@ -61,12 +61,9 @@ points:
     thumbfan:
       anchor:
         ref: matrix_inner_bottom
-        shift: [-2px, -py]
+        shift: [-1px, -py]
       columns:
         inner:
-          key:
-            column_net: P5
-        middle:
           key:
             column_net: P6
         home:
