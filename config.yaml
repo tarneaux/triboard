@@ -17,17 +17,21 @@ units:
   stagger4: -0.2py # inner
 
   # Sizes of things
-  mountinghole_radius: 3
+  mountinghole_radius: stagger2/2
   mountinghole_diameter: 2*mountinghole_radius
+  nut_radius: 3
+  nut_diameter: 2*nut_radius
 
   # Other constants
   xiao_shift_x: -1.5
   xiao_shift_y: 1py+0.39
 
-  tr_mh_sx: -0.5cx+mountinghole_radius
-  tr_mh_sy: 0.5cy+mountinghole_radius
+  tr_mh_sx: -0.5cx+nut_radius
+  tr_mh_sy: 0.5cy+nut_radius
   bm_mh_sx: -0.5kx-ksx+mountinghole_radius
   bm_mh_sy: -0.5ky-mountinghole_radius
+  tl_mh_sx: -0.5cx+mountinghole_radius
+  tl_mh_sy: 0.5ky+mountinghole_radius
 
 points:
   key:
@@ -97,24 +101,23 @@ outlines:
       what: polygon
       points:
         - ref: matrix_pinky_top # Top left
-          shift: [-12, 29.46]
+          shift: [-12, 0.5py+stagger1+stagger2]
         - ref: matrix_pinky_top # Top right
-          shift: [9+lpx, 29.46]
-        - ref: matrix_pinky_top # Top-middle right (for link with matrix)
-          shift: [9+0.5lpx, -0.5py]
-        - ref: matrix_pinky_top # Still
-          shift: [0.5lpx, -0.5py]
-        - ref: matrix_pinky_bottom # Bottom-middle right (for link with matrix)
-          shift: [0.5lpx, -0.5py]
+          shift: [2px, 0.5py+stagger1+stagger2]
+        - ref: matrix_middle_home # In matrix
+        - ref: matrix_ring_home # Same
+        - ref: matrix_pinky_home # Same
+        - ref: matrix_pinky_bottom # Bottom left
+          shift: [0, -0.5py]
         - ref: matrix_pinky_bottom # Bottom left
           shift: [-12, -0.5py]
     - # Top right for slider and screw hole
       what: polygon
       points:
         - ref: matrix_index_top # Top left
-          shift: [-0.5lpx, 0.5ky+mountinghole_diameter]
+          shift: [-0.5lpx, tr_mh_sy+nut_radius]
         - ref: matrix_index_top # Top right
-          shift: [0.5lpx, 0.5ky+mountinghole_diameter]
+          shift: [0.5lpx, tr_mh_sy+nut_radius]
         - ref: matrix_index_top # Bottom right
           shift: [0.5lpx, 0.5py]
         - ref: matrix_index_top # Bottom left
@@ -313,7 +316,7 @@ pcbs:
         what: slider
         where:
           ref: matrix_index_top
-          shift: [4, 0.5ky+mountinghole_diameter-2]
+          shift: [4, tr_mh_sy+nut_radius-2]
           rotate: 0
         params:
           from: BAT+
@@ -323,7 +326,7 @@ pcbs:
         what: slider
         where:
           ref: matrix_index_top
-          shift: [4, 0.5ky+mountinghole_diameter-2]
+          shift: [4, tr_mh_sy+nut_radius-2]
           rotate: 0
         params:
           from: BAT+
@@ -348,10 +351,30 @@ pcbs:
         where:
           ref: matrix_middle_bottom
           shift: [bm_mh_sx, bm_mh_sy]
+      mountinghole_top_left:
+        what: mountinghole
+        where:
+          ref: matrix_ring_top
+          shift: [tl_mh_sx, tl_mh_sy]
   plate:
     outlines:
       plate:
         outline: plate
+    footprints:
+      mountinghole_top_right:
+        what: mountinghole
+        where:
+          ref: matrix_index_top
+          shift: [tr_mh_sx, tr_mh_sy]
+      mountinghole_bottom_middle:
+        what: mountinghole
+        where:
+          ref: matrix_middle_bottom
+          shift: [bm_mh_sx, bm_mh_sy]
+  bottom_plate:
+    outlines:
+      bottom_plate:
+        outline: board
     footprints:
       mountinghole_top_right:
         what: mountinghole
