@@ -31,7 +31,7 @@ units:
   bm_mh_sx: -0.5kx-ksx+mountinghole_radius
   bm_mh_sy: -0.5ky-mountinghole_radius
   tl_mh_sx: -0.5cx+mountinghole_radius
-  tl_mh_sy: 0.5ky+mountinghole_radius
+  tl_mh_sy: 0.5ky+mountinghole_radius+ksy/4
 
 points:
   key:
