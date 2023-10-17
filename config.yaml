@@ -16,22 +16,15 @@ units:
   stagger3: -0.6py # index
   stagger4: -0.2py # inner
 
-  # Sizes of things
-  mountinghole_radius: stagger2/2
-  mountinghole_diameter: 2*mountinghole_radius
-  nut_radius: 3
-  nut_diameter: 2*nut_radius
-
   # Other constants
   xiao_shift_x: -1.5
   xiao_shift_y: 1py+0.39
 
-  tr_mh_sx: -0.5cx+nut_radius
-  tr_mh_sy: 0.5cy+nut_radius
-  bm_mh_sx: -0.5kx-ksx+mountinghole_radius
-  bm_mh_sy: -0.5ky-mountinghole_radius
-  tl_mh_sx: -0.5cx+mountinghole_radius
-  tl_mh_sy: 0.5ky+mountinghole_radius+ksy/4
+  xiao_ref_to_corner_x: -10.5
+  xiao_ref_to_corner_y: 11.39
+
+  left_margin: xiao_shift_x + xiao_ref_to_corner_x
+  top_margin: xiao_shift_y + xiao_ref_to_corner_y
 
 points:
   key:
@@ -101,140 +94,21 @@ outlines:
       what: polygon
       points:
         - ref: matrix_pinky_top # Top left
-          shift: [-12, 0.5py+stagger1+stagger2]
+          shift: [left_margin, top_margin]
         - ref: matrix_pinky_top # Top right
-          shift: [2px, 0.5py+stagger1+stagger2]
+          shift: [2px, top_margin]
         - ref: matrix_middle_home # In matrix
         - ref: matrix_ring_home # Same
         - ref: matrix_pinky_home # Same
         - ref: matrix_pinky_bottom # Bottom left
           shift: [0, -0.5py]
         - ref: matrix_pinky_bottom # Bottom left
-          shift: [-12, -0.5py]
-    - # Top right for slider and screw hole
-      what: polygon
-      points:
-        - ref: matrix_index_top # Top left
-          shift: [-0.5lpx, tr_mh_sy+nut_radius]
-        - ref: matrix_index_top # Top right
-          shift: [0.5lpx, tr_mh_sy+nut_radius]
-        - ref: matrix_index_top # Bottom right
-          shift: [0.5lpx, 0.5py]
-        - ref: matrix_index_top # Bottom left
-          shift: [-0.5lpx, 0.5py]
-
+          shift: [left_margin, -0.5py]
 
   board:
     - what: outline
       name: board_noround
       fillet: 1
-
-  plate_base:
-    - # Main board
-      what: polygon
-      points:
-        - ref: matrix_pinky_top # Top left
-          shift: [-0.5cx, 0.5ky]
-        - ref: matrix_pinky_top
-          shift: [0.5px, 0.5ky]
-        - ref: matrix_ring_top
-          shift: [-0.5px, 0.5ky]
-        - ref: matrix_ring_top
-          shift: [0.5px, 0.5ky]
-        - ref: matrix_middle_top
-          shift: [-0.5px, 0.5ky]
-        - ref: matrix_middle_top
-          shift: [0.5px, 0.5ky]
-        - ref: matrix_index_top
-          shift: [-0.5px, 0.5ky]
-        - ref: matrix_index_top
-          shift: [0.5px, 0.5ky]
-        - ref: matrix_inner_top
-          shift: [-0.5px, 0.5ky]
-        - ref: matrix_inner_top # Top right
-          shift: [0.5cx, 0.5ky]
-        - ref: matrix_inner_bottom
-          shift: [0.5cx, -0.5py]
-        - ref: thumbfan_home_thumb # Bottom right
-          shift: [0.5cx, -0.5py]
-        - ref: thumbfan_inner_thumb
-          shift: [-0.5px, -0.5py]
-        - ref: matrix_index_bottom
-          shift: [0.5px, -0.5py]
-        - ref: matrix_index_bottom
-          shift: [-0.5px, -0.5py]
-        - ref: matrix_middle_bottom
-          shift: [0.5px, -0.5py]
-        - ref: matrix_middle_bottom
-          shift: [-0.5px, -0.5py]
-        - ref: matrix_ring_bottom
-          shift: [0.5px, -0.5py]
-        - ref: matrix_ring_bottom
-          shift: [-0.5px, -0.5py]
-        - ref: matrix_pinky_bottom 
-          shift: [0.5px, -0.5py]
-        - ref: matrix_pinky_bottom # Bottom left
-          shift: [-0.5cx, -0.5py]
-    - # Between the inner thumb key and the board
-      what: polygon
-      points:
-        - ref: thumbfan_inner_thumb # Top left
-          shift: [-0.5px, 2py]
-        - ref: thumbfan_inner_thumb # Top right
-          shift: [1px, 2py]
-        - ref: thumbfan_inner_thumb # Bottom right
-          shift: [1px, -0.5py]
-        - ref: thumbfan_inner_thumb # Bottom left
-          shift: [-0.5px, -0.5py]
-    - # Top right mounting hole
-      what: polygon
-      points:
-        - ref: matrix_index_top # Top left
-          shift: [-px, tr_mh_sy+mountinghole_radius]
-        - ref: matrix_index_top # Top of the hole footprint
-          shift: [tr_mh_sx, tr_mh_sy+mountinghole_radius]
-        - ref: matrix_index_top # Middle
-          shift: [tr_mh_sx, tr_mh_sy]
-        - ref: matrix_index_top # Right of the hole footprint
-          shift: [tr_mh_sx+mountinghole_radius, tr_mh_sy]
-        - ref: matrix_index_top # Bottom right
-          shift: [tr_mh_sx+mountinghole_radius, 0]
-        - ref: matrix_index_top # Bottom left
-          shift: [-px, 0]
-    - what: circle
-      where:
-        ref: matrix_index_top
-        shift: [tr_mh_sx, tr_mh_sy]
-      radius: mountinghole_radius
-    - # Bottom middle mounting hole
-      what: polygon
-      points:
-        - ref: matrix_middle_bottom # Top left
-          shift: [-2px, 0]
-        - ref: matrix_middle_bottom # Top right
-          shift: [bm_mh_sx+mountinghole_radius, 0]
-        - ref: matrix_middle_bottom # Right of the hole footprint
-          shift: [bm_mh_sx+mountinghole_radius, bm_mh_sy]
-        - ref: matrix_middle_bottom # Middle of the hole footprint
-          shift: [bm_mh_sx, bm_mh_sy]
-        - ref: matrix_middle_bottom # Bottom of the hole footprint
-          shift: [bm_mh_sx, bm_mh_sy-mountinghole_radius]
-        - ref: matrix_middle_bottom # Bottom left
-          shift: [-2px, bm_mh_sy-mountinghole_radius]
-    - what: circle
-      where:
-        ref: matrix_middle_bottom
-        shift: [bm_mh_sx, bm_mh_sy]
-      radius: mountinghole_radius
-
-  plate:
-    - what: outline
-      name: plate_base
-      fillet: 1
-    - what: rectangle
-      where: true
-      size: 14
-      operation: subtract
 
 pcbs:
   main:
@@ -315,9 +189,9 @@ pcbs:
       slider_f:
         what: slider
         where:
-          ref: matrix_index_top
-          shift: [4, tr_mh_sy+nut_radius-2]
-          rotate: 0
+          ref: thumbfan_inner_thumb
+          shift: [-20, 2]
+          rotate: 180
         params:
           from: BAT+
           to: XIAO_BAT+
@@ -325,9 +199,9 @@ pcbs:
       slider_b:
         what: slider
         where:
-          ref: matrix_index_top
-          shift: [4, tr_mh_sy+nut_radius-2]
-          rotate: 0
+          ref: thumbfan_inner_thumb
+          shift: [-20, 2]
+          rotate: 180
         params:
           from: BAT+
           to: XIAO_BAT+
@@ -341,48 +215,3 @@ pcbs:
           net: XIAO_BAT+
           width: 1.5
           height: 1.5
-      mountinghole_top_right:
-        what: mountinghole
-        where:
-          ref: matrix_index_top
-          shift: [tr_mh_sx, tr_mh_sy]
-      mountinghole_bottom_middle:
-        what: mountinghole
-        where:
-          ref: matrix_middle_bottom
-          shift: [bm_mh_sx, bm_mh_sy]
-      mountinghole_top_left:
-        what: mountinghole
-        where:
-          ref: matrix_ring_top
-          shift: [tl_mh_sx, tl_mh_sy]
-  plate:
-    outlines:
-      plate:
-        outline: plate
-    footprints:
-      mountinghole_top_right:
-        what: mountinghole
-        where:
-          ref: matrix_index_top
-          shift: [tr_mh_sx, tr_mh_sy]
-      mountinghole_bottom_middle:
-        what: mountinghole
-        where:
-          ref: matrix_middle_bottom
-          shift: [bm_mh_sx, bm_mh_sy]
-  bottom_plate:
-    outlines:
-      bottom_plate:
-        outline: board
-    footprints:
-      mountinghole_top_right:
-        what: mountinghole
-        where:
-          ref: matrix_index_top
-          shift: [tr_mh_sx, tr_mh_sy]
-      mountinghole_bottom_middle:
-        what: mountinghole
-        where:
-          ref: matrix_middle_bottom
-          shift: [bm_mh_sx, bm_mh_sy]
