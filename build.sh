@@ -18,12 +18,14 @@ OUTPUT_DIR=output
 pcbnew_pid=
 
 build() {
-	node_modules/ergogen/src/cli.js . -o $OUTPUT_DIR
-	if [[ "$pcbnew_pid" ]]; then
-		kill "$pcbnew_pid" || true
-	fi
-	pcbnew $OUTPUT_DIR/pcbs/main.kicad_pcb &
-	pcbnew_pid=$!
+	node_modules/ergogen/src/cli.js . -o $OUTPUT_DIR && \
+        {
+            if [[ "$pcbnew_pid" ]]; then
+                kill "$pcbnew_pid" || true
+            fi
+            pcbnew $OUTPUT_DIR/pcbs/main.kicad_pcb &
+            pcbnew_pid=$!
+        } || true
 }
 
 
