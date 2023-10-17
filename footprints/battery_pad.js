@@ -1,7 +1,6 @@
 /*
-    * This is just the standard Ergogen diode, without the THT terminals,
-    * just for aesthetics.
-    */
+  * Battery connection pads
+  */
 
 module.exports = {
     params: {
