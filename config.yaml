@@ -210,7 +210,7 @@ pcbs:
         what: pad
         where:
           ref: matrix_pinky_top
-          shift: [xiao_shift_x, xiao_shift_y + 2.5]
+          shift: [xiao_shift_x, xiao_shift_y + 1.25]
         params:
           net: XIAO_BAT+
           width: 1.5
