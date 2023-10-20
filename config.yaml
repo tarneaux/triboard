@@ -16,15 +16,11 @@ units:
   stagger3: -0.6py # index
   stagger4: -0.2py # inner
 
-  # Other constants
-  xiao_shift_x: -1.5
-  xiao_shift_y: 1py+0.39
+  xiao_length: 21
+  xiao_width: 17.78
 
-  xiao_ref_to_corner_x: -10.5
-  xiao_ref_to_corner_y: 11.39
-
-  left_margin: xiao_shift_x + xiao_ref_to_corner_x
-  top_margin: xiao_shift_y + xiao_ref_to_corner_y
+  left_margin: 0.5px-0.5ksx-xiao_length
+  top_margin: 0.5py+ksy+xiao_width # Here we can add 0.5ky offset whereas we can't in the left margin because we need to be able to use the USB-C port
 
 points:
   key:
@@ -161,22 +157,11 @@ pcbs:
           net: "{{colrow}}"
         adjust:
           shift: [0, 2.67]
-      xiao:
-        what: xiao
-        params:
-          orientation: up # Reset button on the bottom
+      xiao-flippable:
+        what: xiao-flippable
         where:
           ref: matrix_pinky_top
-          shift: [xiao_shift_x, xiao_shift_y + 2.5]
-          rotate: 90
-      xiao-reverse:
-        what: xiao
-        params:
-          orientation: down
-        where:
-          ref: matrix_pinky_top
-          shift: [xiao_shift_x, xiao_shift_y]
-          rotate: 90
+          shift: [0.5px-0.5ksx, 0.5py+0.5ksy]
       battery_pad:
         what: battery_pad
         where:
@@ -210,7 +195,7 @@ pcbs:
         what: pad
         where:
           ref: matrix_pinky_top
-          shift: [xiao_shift_x, xiao_shift_y + 1.25]
+          shift: [0.5px, py-2]
         params:
           net: XIAO_BAT+
           width: 1.5
