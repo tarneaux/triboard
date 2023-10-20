@@ -75,31 +75,17 @@ outlines:
     - what: rectangle
       where: true
       size: [lpx, py]
-    - # Between board and thumbfan
-      what: polygon
-      points:
-        - ref: matrix_pinky_bottom # Top left
-          shift: [-0.5lpx, 1ky]
-        - ref: matrix_pinky_bottom # Top right
-          shift: [4kx, 1ky]
-        - ref: matrix_pinky_bottom # Bottom right
-          shift: [4kx, -0.5py]
-        - ref: matrix_pinky_bottom # Bottom left
-          shift: [-0.5lpx, -0.5py]
     - # MCU
       what: polygon
       points:
         - ref: matrix_pinky_top # Top left
           shift: [left_margin, top_margin]
         - ref: matrix_pinky_top # Top right
-          shift: [2px, top_margin]
-        - ref: matrix_middle_home # In matrix
-        - ref: matrix_ring_home # Same
-        - ref: matrix_pinky_home # Same
+          shift: [4px+0.5lpx, top_margin]
+        - ref: thumbfan_home_thumb
+          shift: [0.5lpx, -0.5py]
         - ref: matrix_pinky_bottom # Bottom left
-          shift: [0, -0.5py]
-        - ref: matrix_pinky_bottom # Bottom left
-          shift: [left_margin, -0.5py]
+          shift: [left_margin, stagger1+stagger2+stagger3+stagger4-1.5py]
 
   board:
     - what: outline
@@ -174,9 +160,8 @@ pcbs:
       slider_f:
         what: slider
         where:
-          ref: thumbfan_inner_thumb
-          shift: [-20, 2]
-          rotate: 180
+          ref: matrix_pinky_top
+          shift: [3px, top_margin-2]
         params:
           from: BAT+
           to: XIAO_BAT+
@@ -184,9 +169,8 @@ pcbs:
       slider_b:
         what: slider
         where:
-          ref: thumbfan_inner_thumb
-          shift: [-20, 2]
-          rotate: 180
+          ref: matrix_pinky_top
+          shift: [3px, top_margin-2]
         params:
           from: BAT+
           to: XIAO_BAT+
