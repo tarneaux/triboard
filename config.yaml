@@ -58,9 +58,12 @@ points:
     thumbfan:
       anchor:
         ref: matrix_inner_bottom
-        shift: [-1px, -py]
+        shift: [-2px, -py]
       columns:
         inner:
+          key:
+            column_net: P5
+        middle:
           key:
             column_net: P6
         home:
@@ -184,3 +187,16 @@ pcbs:
           net: XIAO_BAT+
           width: 1.5
           height: 1.5
+      trrs:
+        what: trrs
+        where:
+          ref: matrix_inner_top
+          shift: [7.86, 0.5ky+0.70+ksy]
+          rotate: -90
+        params:
+          reverse: true
+          symmetric: true
+          A: VCC5
+          B: VCC5 # overlaps with A
+          C: GND
+          D: P7
