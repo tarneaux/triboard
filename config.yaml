@@ -191,7 +191,7 @@ pcbs:
           from: BAT+
           to: XIAO_BAT+
           side: B
-      batt_pad:
+      battery_pad_xiao:
         what: pad
         where:
           ref: matrix_pinky_top
