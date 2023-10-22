@@ -19,8 +19,7 @@ units:
   xiao_length: 21
   xiao_width: 17.78
 
-  left_margin: 0.5px-0.5ksx-xiao_length
-  top_margin: 0.5py+ksy+xiao_width # Here we can add 0.5ky offset whereas we can't in the left margin because we need to be able to use the USB-C port
+  top_margin: 0.5py + stagger1 + stagger2
 
 points:
   key:
@@ -82,13 +81,13 @@ outlines:
       what: polygon
       points:
         - ref: matrix_pinky_top # Top left
-          shift: [left_margin, top_margin]
+          shift: [-0.5lpx, top_margin]
         - ref: matrix_pinky_top # Top right
           shift: [4px+0.5lpx, top_margin]
         - ref: thumbfan_home_thumb # Bottom right
           shift: [0.5lpx, -0.5py]
         - ref: matrix_pinky_bottom # Bottom left
-          shift: [left_margin, stagger1+stagger2+stagger3+stagger4-1.5py]
+          shift: [-0.5lpx, stagger1+stagger2+stagger3+stagger4-1.5py]
 
   board:
     - what: outline
@@ -150,7 +149,17 @@ pcbs:
         what: xiao_flippable
         where:
           ref: matrix_pinky_top
-          shift: [0.5px-0.5ksx, 0.5py+0.5ksy]
+          shift: [0.5px-0.5ksx-xiao_width-(kx-xiao_width)/2, 0.5py+0.5ksy]
+          rotate: -90
+      battery_pad_xiao:
+        what: pad
+        where:
+          ref: matrix_pinky_top
+          shift: [0, 0.5py]
+        params:
+          net: XIAO_BAT+
+          width: 1.5
+          height: 1.5
       battery_pad:
         what: battery_pad
         where:
@@ -178,15 +187,6 @@ pcbs:
           from: BAT+
           to: XIAO_BAT+
           side: B
-      battery_pad_xiao:
-        what: pad
-        where:
-          ref: matrix_pinky_top
-          shift: [0.5px, py-2]
-        params:
-          net: XIAO_BAT+
-          width: 1.5
-          height: 1.5
       trrs:
         what: trrs
         where:
@@ -215,3 +215,4 @@ pcbs:
           # In middle of MCU
           ref: matrix_pinky_top
           shift: [-1.5, 1py+2.5]
+          rotate: 90
