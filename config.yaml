@@ -200,3 +200,14 @@ pcbs:
           B: VCC5 # overlaps with A
           C: GND
           D: P7
+      logo:
+        what: logo
+        where:
+          ref: matrix_pinky_bottom
+          shift: [3, -0.5py-4.5]
+      monkey:
+        what: monkey
+        where:
+          # In middle of MCU
+          ref: matrix_pinky_top
+          shift: [-1.5, 1py+2.5]
