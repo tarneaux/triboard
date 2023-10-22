@@ -146,8 +146,8 @@ pcbs:
           net: "{{colrow}}"
         adjust:
           shift: [0, 2.67]
-      xiao-flippable:
-        what: xiao-flippable
+      xiao_flippable:
+        what: xiao_flippable
         where:
           ref: matrix_pinky_top
           shift: [0.5px-0.5ksx, 0.5py+0.5ksy]
