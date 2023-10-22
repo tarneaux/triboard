@@ -22,6 +22,7 @@ build() {
         {
             if [[ "$pcbnew_pid" ]]; then
                 kill "$pcbnew_pid" || true
+                rm -rf $OUTPUT_DIR/pcbs/\~main.kicad_pcb.lck
             fi
             pcbnew $OUTPUT_DIR/pcbs/main.kicad_pcb &
             pcbnew_pid=$!
