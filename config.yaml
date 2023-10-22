@@ -19,7 +19,7 @@ units:
   xiao_length: 21
   xiao_width: 17.78
 
-  top_margin: 0.5py + stagger1 + stagger2
+  trrs_width: 6.1
 
 points:
   key:
@@ -74,20 +74,45 @@ points:
 
 outlines:
   board_noround:
-    - what: rectangle
+    keys:
+      what: rectangle
       where: true
       size: [lpx, py]
-    - # MCU
+    mcu:
       what: polygon
       points:
-        - ref: matrix_pinky_top # Top left
-          shift: [-0.5lpx, top_margin]
-        - ref: matrix_pinky_top # Top right
-          shift: [4px+0.5lpx, top_margin]
+        - ref: matrix_middle_top # Top left
+          shift: [-2px-0.5lpx, 0.5py]
+        - ref: matrix_middle_top # Top right
+          shift: [0, 0.5py]
+        - ref: matrix_middle_top # Bottom right (in board)
+          shift: [0, -1py]
+        - ref: matrix_middle_top # Bottom left
+          shift: [-2px-0.5lpx, -1py]
+    battery:
+      what: polygon
+      points:
+        - ref: matrix_ring_home # Top left (in board)
+          shift: [-0.5lpx, 0]
+        - ref: matrix_inner_home # Top right (in board)
+          shift: [0.5lpx, 0]
         - ref: thumbfan_home_thumb # Bottom right
           shift: [0.5lpx, -0.5py]
-        - ref: matrix_pinky_bottom # Bottom left
-          shift: [-0.5lpx, stagger1+stagger2+stagger3+stagger4-1.5py]
+        - ref: thumbfan_inner_thumb # Bottom left
+          shift: [-0.5lpx, -0.5py]
+    trrs:
+      what: polygon
+      points:
+        - ref: matrix_inner_top # Top left
+          shift: [-2px, 0.5py+trrs_width+ksy]
+        - ref: matrix_inner_top # Top right
+          shift: [0.5lpx, 0.5py+trrs_width+ksy]
+        - ref: matrix_inner_top # Bottom right (in board)
+          shift: [0.5lpx, -1py]
+        - ref: matrix_inner_top # Bottom left
+          shift: [-2px, -1py]
+
+
 
   board:
     - what: outline
@@ -172,8 +197,8 @@ pcbs:
       slider_f:
         what: slider
         where:
-          ref: matrix_pinky_top
-          shift: [1px, top_margin-3]
+          ref: matrix_middle_top
+          shift: [-1px, 0.5px-3]
         params:
           from: BAT+
           to: XIAO_BAT+
@@ -181,8 +206,8 @@ pcbs:
       slider_b:
         what: slider
         where:
-          ref: matrix_pinky_top
-          shift: [1px, top_margin-3]
+          ref: matrix_middle_top
+          shift: [-1px, 0.5px-3]
         params:
           from: BAT+
           to: XIAO_BAT+
