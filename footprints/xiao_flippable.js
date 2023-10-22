@@ -932,7 +932,7 @@ module.exports = {
         (gr_line (start -0.766 4.822) (end 0 5.588) (width 0.25))
       ) (tstamp e640228f-f683-4383-a092-1dd93116f7da) ${p.VCC5.str})
     (pad "1" thru_hole circle (at -18.12 -9.652 ${p.rot + 180}) (size 0.8 0.8) (drill 0.4) (layers "*.Cu") (tstamp effd7922-1191-437a-9ad5-2241b3cbd401) ${p.VCC5.str})
-    (pad "1" smd custom (at -18.12 -4.064 ${p.rot + 180}) (size 1.2 0.5) (layers "B.Cu" "B.Mask")
+    (pad "1" smd custom (at -18.12 -4.064 ${p.rot + 180}) (size 1.2 0.5) (layers "B.Cu" "B.Mask") ${p.VCC5.str}
       (clearance 0.1) (zone_connect 0)
       (options (clearance outline) (anchor rect))
       (primitives
@@ -977,7 +977,7 @@ module.exports = {
         (gr_line (start -0.766 4.822) (end 0 5.588) (width 0.25))
       ) (tstamp 27f6d5de-58fb-4540-b826-698a9cf3177d) ${p.GND.str})
     (pad "2" thru_hole circle (at -15.58 -9.652 ${p.rot + 180}) (size 0.8 0.8) (drill 0.4) (layers "*.Cu") (tstamp 86ddba8f-bdbc-4199-a5d3-72a1aff17748) ${p.GND.str})
-    (pad "2" smd custom (at -15.58 -4.064 ${p.rot + 180}) (size 1.2 0.5) (layers "B.Cu" "B.Mask")
+    (pad "2" smd custom (at -15.58 -4.064 ${p.rot + 180}) (size 1.2 0.5) (layers "B.Cu" "B.Mask") ${p.GND.str}
       (clearance 0.1) (zone_connect 0)
       (options (clearance outline) (anchor rect))
       (primitives
@@ -1022,7 +1022,7 @@ module.exports = {
         (gr_line (start -0.766 4.822) (end 0 5.588) (width 0.25))
       ) (tstamp d97f5ce2-264e-4723-90d9-3b1770a77486) ${p.VCC3.str})
     (pad "3" thru_hole circle (at -13.04 -9.652 ${p.rot + 180}) (size 0.8 0.8) (drill 0.4) (layers "*.Cu") (tstamp 1471df66-5ff7-4a36-a993-ba6c2063ea4c) ${p.VCC3.str})
-    (pad "3" smd custom (at -13.04 -4.064 ${p.rot + 180}) (size 1.2 0.5) (layers "B.Cu" "B.Mask")
+    (pad "3" smd custom (at -13.04 -4.064 ${p.rot + 180}) (size 1.2 0.5) (layers "B.Cu" "B.Mask") ${p.VCC3.str}
       (clearance 0.1) (zone_connect 0)
       (options (clearance outline) (anchor rect))
       (primitives
@@ -1067,7 +1067,7 @@ module.exports = {
         (gr_line (start -0.766 4.822) (end 0 5.588) (width 0.25))
       ) (tstamp 42a5335a-7f70-4a93-8916-8bdc7efb086b) ${p.P10.str})
     (pad "4" thru_hole circle (at -10.5 -9.652 ${p.rot + 180}) (size 0.8 0.8) (drill 0.4) (layers "*.Cu") (tstamp 0e229b9b-4845-4dee-9cfd-76abcb7712b0) ${p.P10.str})
-    (pad "4" smd custom (at -10.5 -4.064 ${p.rot + 180}) (size 1.2 0.5) (layers "B.Cu" "B.Mask")
+    (pad "4" smd custom (at -10.5 -4.064 ${p.rot + 180}) (size 1.2 0.5) (layers "B.Cu" "B.Mask") ${p.P10.str}
       (clearance 0.1) (zone_connect 0)
       (options (clearance outline) (anchor rect))
       (primitives
@@ -1112,7 +1112,7 @@ module.exports = {
         (gr_line (start -0.766 4.822) (end 0 5.588) (width 0.25))
       ) (tstamp eecc3a37-e8c0-4c56-9d2f-28d69fdbd8b9) ${p.P9.str})
     (pad "5" thru_hole circle (at -7.96 -9.652 ${p.rot + 180}) (size 0.8 0.8) (drill 0.4) (layers "*.Cu") (tstamp 346eaf32-1de4-46f2-bfac-9a74a681dd59) ${p.P9.str})
-    (pad "5" smd custom (at -7.96 -4.064 ${p.rot + 180}) (size 1.2 0.5) (layers "B.Cu" "B.Mask")
+    (pad "5" smd custom (at -7.96 -4.064 ${p.rot + 180}) (size 1.2 0.5) (layers "B.Cu" "B.Mask") ${p.P9.str}
       (clearance 0.1) (zone_connect 0)
       (options (clearance outline) (anchor rect))
       (primitives
@@ -1157,7 +1157,7 @@ module.exports = {
         (gr_line (start -0.766 4.822) (end 0 5.588) (width 0.25))
       ) (tstamp 42e64d66-b6a9-42e3-88ab-bc3a38e58409) ${p.P8.str})
     (pad "6" thru_hole circle (at -5.42 -9.652 ${p.rot + 180}) (size 0.8 0.8) (drill 0.4) (layers "*.Cu") (tstamp 05fb03b7-9dbf-4f4f-b766-fd0b534ed10d) ${p.P8.str})
-    (pad "6" smd custom (at -5.42 -4.064 ${p.rot + 180}) (size 1.2 0.5) (layers "B.Cu" "B.Mask")
+    (pad "6" smd custom (at -5.42 -4.064 ${p.rot + 180}) (size 1.2 0.5) (layers "B.Cu" "B.Mask") ${p.P8.str}
       (clearance 0.1) (zone_connect 0)
       (options (clearance outline) (anchor rect))
       (primitives
@@ -1202,7 +1202,7 @@ module.exports = {
         (gr_line (start -0.766 4.822) (end 0 5.588) (width 0.25))
       ) (tstamp 777d1c82-5f2d-48be-8cc2-b72602479035) ${p.P7.str})
     (pad "7" thru_hole circle (at -2.88 -9.652 ${p.rot + 180}) (size 0.8 0.8) (drill 0.4) (layers "*.Cu") (tstamp c69be33f-8776-4bdd-8608-791fbaa6b84a) ${p.P7.str})
-    (pad "7" smd custom (at -2.88 -4.064 ${p.rot + 180}) (size 1.2 0.5) (layers "B.Cu" "B.Mask")
+    (pad "7" smd custom (at -2.88 -4.064 ${p.rot + 180}) (size 1.2 0.5) (layers "B.Cu" "B.Mask") ${p.P7.str}
       (clearance 0.1) (zone_connect 0)
       (options (clearance outline) (anchor rect))
       (primitives
@@ -1247,7 +1247,7 @@ module.exports = {
         (gr_line (start -0.766 4.822) (end 0 5.588) (width 0.25))
       ) (tstamp fd3bf8d1-eb00-451b-89d0-56484f5c866c) ${p.P6.str})
     (pad "18" thru_hole circle (at -2.88 -8.128 ${p.rot + 180}) (size 0.8 0.8) (drill 0.4) (layers "*.Cu") (tstamp a17c56a7-5e49-4b45-84b3-1bf64f7c449e) ${p.P6.str})
-    (pad "18" smd custom (at -2.88 -4.064 ${p.rot + 180}) (size 1.2 0.5) (layers "F.Cu" "F.Mask")
+    (pad "18" smd custom (at -2.88 -4.064 ${p.rot + 180}) (size 1.2 0.5) (layers "F.Cu" "F.Mask") ${p.P6.str}
       (clearance 0.1) (zone_connect 0)
       (options (clearance outline) (anchor rect))
       (primitives
@@ -1292,7 +1292,7 @@ module.exports = {
         (gr_line (start -0.766 4.822) (end 0 5.588) (width 0.25))
       ) (tstamp 0008dbfc-4a62-4e72-99a2-adf28713b46d) ${p.P5.str})
     (pad "19" thru_hole circle (at -5.42 -8.128 ${p.rot + 180}) (size 0.8 0.8) (drill 0.4) (layers "*.Cu") (tstamp 2023ccd8-3864-4668-85f1-71a3b2de48fc) ${p.P5.str})
-    (pad "19" smd custom (at -5.42 -4.064 ${p.rot + 180}) (size 1.2 0.5) (layers "F.Cu" "F.Mask")
+    (pad "19" smd custom (at -5.42 -4.064 ${p.rot + 180}) (size 1.2 0.5) (layers "F.Cu" "F.Mask") ${p.P5.str}
       (clearance 0.1) (zone_connect 0)
       (options (clearance outline) (anchor rect))
       (primitives
@@ -1337,7 +1337,7 @@ module.exports = {
         (gr_line (start -0.766 4.822) (end 0 5.588) (width 0.25))
       ) (tstamp 2580a042-d109-4f47-ac5f-474f8d70251d) ${p.P4.str})
     (pad "20" thru_hole circle (at -7.96 -8.128 ${p.rot + 180}) (size 0.8 0.8) (drill 0.4) (layers "*.Cu") (tstamp 5ff76348-2d4f-4ce5-ac71-86b629c3b535) ${p.P4.str})
-    (pad "20" smd custom (at -7.96 -4.064 ${p.rot + 180}) (size 1.2 0.5) (layers "F.Cu" "F.Mask")
+    (pad "20" smd custom (at -7.96 -4.064 ${p.rot + 180}) (size 1.2 0.5) (layers "F.Cu" "F.Mask") ${p.P4.str}
       (clearance 0.1) (zone_connect 0)
       (options (clearance outline) (anchor rect))
       (primitives
@@ -1382,7 +1382,7 @@ module.exports = {
         (gr_line (start -0.766 4.822) (end 0 5.588) (width 0.25))
       ) (tstamp c9fcee45-a47b-41d7-ae01-a78c33ac04bf) ${p.P3.str})
     (pad "21" thru_hole circle (at -10.5 -8.128 ${p.rot + 180}) (size 0.8 0.8) (drill 0.4) (layers "*.Cu") (tstamp 1482796b-e3f4-4413-a0b5-6d4d3eb3999f) ${p.P3.str})
-    (pad "21" smd custom (at -10.5 -4.064 ${p.rot + 180}) (size 1.2 0.5) (layers "F.Cu" "F.Mask")
+    (pad "21" smd custom (at -10.5 -4.064 ${p.rot + 180}) (size 1.2 0.5) (layers "F.Cu" "F.Mask") ${p.P3.str}
       (clearance 0.1) (zone_connect 0)
       (options (clearance outline) (anchor rect))
       (primitives
@@ -1427,7 +1427,7 @@ module.exports = {
         (gr_line (start -0.766 4.822) (end 0 5.588) (width 0.25))
       ) (tstamp 3fcf8b8b-b0e5-4846-9520-68386634abde) ${p.P2.str})
     (pad "22" thru_hole circle (at -13.04 -8.128 ${p.rot + 180}) (size 0.8 0.8) (drill 0.4) (layers "*.Cu") (tstamp 6658e748-0025-498d-887d-d3d29c38d08e) ${p.P2.str})
-    (pad "22" smd custom (at -13.04 -4.064 ${p.rot + 180}) (size 1.2 0.5) (layers "F.Cu" "F.Mask")
+    (pad "22" smd custom (at -13.04 -4.064 ${p.rot + 180}) (size 1.2 0.5) (layers "F.Cu" "F.Mask") ${p.P2.str}
       (clearance 0.1) (zone_connect 0)
       (options (clearance outline) (anchor rect))
       (primitives
@@ -1472,7 +1472,7 @@ module.exports = {
         (gr_line (start -0.766 4.822) (end 0 5.588) (width 0.25))
       ) (tstamp c9d1d6ce-6cb2-4403-aea7-0ec475ee08bb) ${p.P1.str})
     (pad "23" thru_hole circle (at -15.58 -8.128 ${p.rot + 180}) (size 0.8 0.8) (drill 0.4) (layers "*.Cu") (tstamp e0313b51-4ab2-4492-a738-eaaab92810a8) ${p.P1.str})
-    (pad "23" smd custom (at -15.58 -4.064 ${p.rot + 180}) (size 1.2 0.5) (layers "F.Cu" "F.Mask")
+    (pad "23" smd custom (at -15.58 -4.064 ${p.rot + 180}) (size 1.2 0.5) (layers "F.Cu" "F.Mask") ${p.P1.str}
       (clearance 0.1) (zone_connect 0)
       (options (clearance outline) (anchor rect))
       (primitives
@@ -1517,7 +1517,7 @@ module.exports = {
         (gr_line (start -0.766 4.822) (end 0 5.588) (width 0.25))
       ) (tstamp e6130121-e0ce-48a0-b20a-e279bf7a79f9) ${p.P0.str})
     (pad "24" thru_hole circle (at -18.12 -8.128 ${p.rot + 180}) (size 0.8 0.8) (drill 0.4) (layers "*.Cu") (tstamp 3b8faa6c-b5e4-438c-a03d-5f17ad67b089) ${p.P0.str})
-    (pad "24" smd custom (at -18.12 -4.064 ${p.rot + 180}) (size 1.2 0.5) (layers "F.Cu" "F.Mask")
+    (pad "24" smd custom (at -18.12 -4.064 ${p.rot + 180}) (size 1.2 0.5) (layers "F.Cu" "F.Mask") ${p.P0.str}
       (clearance 0.1) (zone_connect 0)
       (options (clearance outline) (anchor rect))
       (primitives
