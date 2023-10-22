@@ -92,7 +92,7 @@ outlines:
     battery:
       what: polygon
       points:
-        - ref: matrix_ring_home # Top left (in board)
+        - ref: matrix_middle_home # Top left (in board)
           shift: [-0.5lpx, 0]
         - ref: matrix_inner_home # Top right (in board)
           shift: [0.5lpx, 0]
@@ -188,7 +188,7 @@ pcbs:
       battery_pad:
         what: battery_pad
         where:
-          ref: matrix_middle_bottom
+          ref: matrix_index_bottom
           shift: [5, -0.5ky-2]
           rotate: 0
         params:
@@ -228,8 +228,8 @@ pcbs:
       logo:
         what: logo
         where:
-          ref: matrix_pinky_bottom
-          shift: [3, -0.5py-4.5]
+          ref: thumbfan_inner_thumb
+          shift: [3, 0.5py+4]
         params:
           # Remove F.Paste if you want to use a stencil when soldering!
           # This just allows us to see the correct color in KiCad's 3d viewer.
