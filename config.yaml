@@ -205,6 +205,10 @@ pcbs:
         where:
           ref: matrix_pinky_bottom
           shift: [3, -0.5py-4.5]
+        params:
+          # Remove F.Paste if you want to use a stencil when soldering!
+          # This just allows us to see the correct color in KiCad's 3d viewer.
+          layers: [F.Cu, F.Paste, F.Mask]
       monkey:
         what: monkey
         where:
