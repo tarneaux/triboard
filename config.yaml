@@ -173,7 +173,7 @@ pcbs:
         what: slider
         where:
           ref: matrix_pinky_top
-          shift: [3px, top_margin-2]
+          shift: [1px, top_margin-3]
         params:
           from: BAT+
           to: XIAO_BAT+
@@ -182,7 +182,7 @@ pcbs:
         what: slider
         where:
           ref: matrix_pinky_top
-          shift: [3px, top_margin-2]
+          shift: [1px, top_margin-3]
         params:
           from: BAT+
           to: XIAO_BAT+
