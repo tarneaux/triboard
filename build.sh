@@ -37,6 +37,6 @@ if [[ "$1" == "once" ]]; then
 fi
 
 while true; do
-	inotifywait -e modify config.yaml || true
+	inotifywait -e modify config.yaml footprints/ || true
 	build
 done
