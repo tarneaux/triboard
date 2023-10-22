@@ -1,5 +1,6 @@
 /*
-  * Battery connection pads
+  * The triboard logo with text, using the Fantasque Sans Mono font.
+  * (The text was converted to vector graphics)
   */
 
 module.exports = {
