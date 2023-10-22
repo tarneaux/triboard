@@ -100,6 +100,17 @@ outlines:
           shift: [0.5lpx, -0.5py]
         - ref: thumbfan_inner_thumb # Bottom left
           shift: [-0.5lpx, -0.5py]
+    logo:
+      what: polygon
+      points:
+        - ref: matrix_pinky_bottom # Top left (in board)
+          shift: [0, py]
+        - ref: matrix_pinky_bottom # Top right (in board)
+          shift: [2px, py]
+        - ref: matrix_pinky_bottom # Bottom right (in board)
+          shift: [2px, -0.5py]
+        - ref: matrix_pinky_bottom # Bottom left (in board)
+          shift: [0, -0.5py]
     trrs:
       what: polygon
       points:
@@ -228,8 +239,8 @@ pcbs:
       logo:
         what: logo
         where:
-          ref: thumbfan_inner_thumb
-          shift: [3, 0.5py+4]
+          ref: matrix_ring_bottom
+          shift: [0, -1py]
         params:
           # Remove F.Paste if you want to use a stencil when soldering!
           # This just allows us to see the correct color in KiCad's 3d viewer.
