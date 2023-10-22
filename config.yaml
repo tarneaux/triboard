@@ -85,7 +85,7 @@ outlines:
           shift: [left_margin, top_margin]
         - ref: matrix_pinky_top # Top right
           shift: [4px+0.5lpx, top_margin]
-        - ref: thumbfan_home_thumb
+        - ref: thumbfan_home_thumb # Bottom right
           shift: [0.5lpx, -0.5py]
         - ref: matrix_pinky_bottom # Bottom left
           shift: [left_margin, stagger1+stagger2+stagger3+stagger4-1.5py]
