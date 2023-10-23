@@ -123,8 +123,6 @@ outlines:
         - ref: matrix_inner_top # Bottom left
           shift: [-2px, -1py]
 
-
-
   board:
     - what: outline
       name: board_noround
