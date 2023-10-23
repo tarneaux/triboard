@@ -128,6 +128,59 @@ outlines:
       name: board_noround
       fillet: 1
 
+  top_plate_base:
+    keys:
+      what: polygon
+      points:
+        - ref: matrix_pinky_top
+          shift: [-0.5kx, 0.5ky]
+        - ref: matrix_pinky_top
+          shift: [0.5kx+ksx, 0.5ky]
+        - ref: matrix_ring_top
+          shift: [-0.5kx, 0.5ky]
+        - ref: matrix_ring_top
+          shift: [0.5kx+ksx, 0.5ky]
+        - ref: matrix_middle_top
+          shift: [-0.5kx, 0.5ky]
+        - ref: matrix_middle_top
+          shift: [0.5kx, 0.5ky]
+        - ref: matrix_index_top
+          shift: [-0.5kx-ksx, 0.5ky]
+        - ref: matrix_index_top
+          shift: [0.5kx, 0.5ky]
+        - ref: matrix_inner_top
+          shift: [-0.5kx-ksx, 0.5ky]
+        - ref: matrix_inner_top
+          shift: [0.5kx, 0.5ky]
+        - ref: thumbfan_home_thumb
+          shift: [0.5kx, -0.5ky]
+        - ref: thumbfan_middle_thumb
+          shift: [-0.5kx, -0.5ky]
+        - ref: matrix_index_bottom
+          shift: [-0.5kx, -0.5ky]
+        - ref: matrix_middle_bottom
+          shift: [0.5kx+ksx, -0.5ky]
+        - ref: matrix_middle_bottom
+          shift: [-0.5kx-ksx, -0.5ky]
+        - ref: matrix_ring_bottom
+          shift: [0.5kx, -0.5ky]
+        - ref: matrix_ring_bottom
+          shift: [-0.5kx-ksx, -0.5ky]
+        - ref: matrix_pinky_bottom
+          shift: [0.5kx, -0.5ky]
+        - ref: matrix_pinky_bottom
+          shift: [-0.5kx, -0.5ky]
+  top_plate:
+    top_plate_base:
+      what: outline
+      name: top_plate_base
+      fillet: 1
+    cutouts:
+      what: rectangle
+      where: true
+      size: 14
+      operation: subtract
+
 pcbs:
   main:
     outlines:
@@ -250,3 +303,7 @@ pcbs:
           ref: matrix_pinky_top
           shift: [-1.5, 1py+2.5]
           rotate: 90
+  top_plate:
+    outlines:
+      top_plate:
+        outline: top_plate
