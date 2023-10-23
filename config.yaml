@@ -30,30 +30,30 @@ points:
       columns:
         pinky:
           key:
-            column_net: P3
+            column_net: P6
         ring:
           key:
             stagger: stagger1
-            column_net: P4
+            column_net: P3
         middle:
           key:
             stagger: stagger2
-            column_net: P5
+            column_net: P2
         index:
           key:
             stagger: stagger3
-            column_net: P6
+            column_net: P1
         inner:
           key:
             stagger: stagger4
-            column_net: P8
+            column_net: P0
       rows:
         bottom:
-          row_net: P0
+          row_net: P10
         home:
-          row_net: P1
+          row_net: P9
         top:
-          row_net: P2
+          row_net: P8
     thumbfan:
       anchor:
         ref: matrix_inner_bottom
@@ -61,16 +61,16 @@ points:
       columns:
         inner:
           key:
-            column_net: P5
+            column_net: P2
         middle:
           key:
-            column_net: P6
+            column_net: P1
         home:
           key:
-            column_net: P8
+            column_net: P0
       rows:
         thumb:
-          row_net: P9
+          row_net: P4
 
 outlines:
   board_noround:
