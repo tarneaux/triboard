@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "gen": "ergogen -d ."
+  },
   "dependencies": {
     "ergogen": "^4.0.4"
   }
