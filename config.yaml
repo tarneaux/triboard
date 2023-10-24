@@ -30,7 +30,7 @@ points:
       columns:
         pinky:
           key:
-            column_net: P6
+            column_net: P5
         ring:
           key:
             stagger: stagger1
