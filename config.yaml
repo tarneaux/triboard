@@ -238,20 +238,20 @@ pcbs:
           ref: matrix_pinky_top
           shift: [0.5px-0.5ksx-xiao_width-(kx-xiao_width)/2, 0.5py+0.5ksy]
           rotate: -90
-      battery_pad_xiao:
+      raw_pad:
         what: pad
         where:
           ref: matrix_pinky_top
           shift: [0, 0.5py]
         params:
-          net: XIAO_BAT+
+          net: RAW
           width: 1.5
           height: 1.5
-      battery_pad:
+      battery_pads:
         what: battery_pad
         where:
           ref: matrix_index_bottom
-          shift: [5, -0.5ky-2]
+          shift: [0, -0.5ky-2]
           rotate: 0
         params:
           plus: BAT+
@@ -263,7 +263,7 @@ pcbs:
           shift: [-1px, 0.5px-3]
         params:
           from: BAT+
-          to: XIAO_BAT+
+          to: RAW
           side: F
       slider_b:
         what: slider
@@ -272,7 +272,7 @@ pcbs:
           shift: [-1px, 0.5px-3]
         params:
           from: BAT+
-          to: XIAO_BAT+
+          to: RAW
           side: B
       trrs:
         what: trrs
