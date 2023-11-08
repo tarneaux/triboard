@@ -1,6 +1,6 @@
 # Triboard
 
-The Triboard is an ergonomic, split mechanical keyboard using hotswappable Kailh Choc switches and any Seeed XIAO-compatible controller.
+The Triboard is an ergonomic, split mechanical keyboard using hotswappable Kailh Choc switches and any Seeed XIAO compatible controller.
 
 ![Picture](picture.jpg)
 
