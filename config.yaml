@@ -21,6 +21,8 @@ units:
 
   trrs_width: 6.1
 
+  ct: 1.5 # case thickness
+
 points:
   key:
     spread: 1px
@@ -180,6 +182,43 @@ outlines:
       where: true
       size: 14
       operation: subtract
+  case_base_raw:
+    - what: polygon
+      points:
+        - ref: matrix_middle_top # Top left
+          shift: [-2px-0.5lpx-ct, 0.5py+ct]
+        - ref: matrix_middle_top # Top right
+          shift: [2px+0.5lpx+ct, 0.5py+ct]
+        - ref: thumbfan_home_thumb # Bottom right
+          shift: [0.5lpx+ct, -0.5py-ct]
+        - ref: thumbfan_inner_thumb # Bottom left
+          shift: [-2px-0.5lpx-ct, -0.5py-ct]
+  case_base:
+    - what: outline
+      name: case_base_raw
+      fillet: 1
+  case_walls:
+    - what: outline
+      name: case_base
+    - what: outline
+      operation: subtract
+      name: board
+
+cases:
+  left_bottom:
+    - what: outline
+      name: case_base
+      extrude: ct
+      shift: [0, 0, -1.5]
+    - what: outline
+      name: case_walls
+      extrude: 1.85 + 1.6 + 5 # hotswap socket + pcb + switch
+    - what: outline
+      name: top_plate
+      extrude: 1.3
+      shift: [0, 0, 1.85 + 1.6 + 0.9] # 0.9 is the distance between the top plate and the pcb
+
+
 
 pcbs:
   main:
