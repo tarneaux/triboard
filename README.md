@@ -13,6 +13,8 @@ For now I have only tried a full build with ZMK but KMK seems to work well on ES
 
 The PCB is automatically generated with Ergogen and then routed by hand. You could in theory use Freerouting or similar software instead.
 
+A flippable XIAO footprint based on a [similar promicro footprint](https://github.com/50an6xy06r6n/keyboard_reversible.pretty) helps to make the board smaller.
+
 [PCB releases](https://github.com/tarneaux/triboard/releases) are available.
 
 [Link to ZMK config repo](https://github.com/tarneaux/zmk-config-triboard)
