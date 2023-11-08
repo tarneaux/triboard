@@ -26,3 +26,7 @@ To build the keyboard with ergogen and open the PCB in KiCad's PCBnew, run:
 npm install
 ./build.sh # Automatically update the PCB and reopen pcbnew whenever config.yaml changes
 ```
+
+## Routing
+
+To make the routing process easier, you can route a single key (diode to via and vias to hotswap socket pads), select all traces (by filtering the selection from the right-click menu) and paste those traces for each key. Then connect the rest according to the KiCad nets as usual.
