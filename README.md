@@ -29,9 +29,21 @@ npm install
 ./build.sh # Automatically update the PCB and reopen pcbnew whenever config.yaml changes
 ```
 
+Here are some things you may want to change:
+- Vertical stagger values, defined in the `units` section at the top of the file.
+- Hotswappability: I couldn't make the board support both hot-swap sockets and direct switch soldering. Search for `hotswap` in `config.yaml` and adjust accordingly.
+
 ## Routing
 
 To make the routing process easier, you can route a single key (diode to via and vias to hotswap socket pads), select all traces (by filtering the selection from the right-click menu) and paste those traces for each key. Then connect the rest according to the KiCad nets as usual.
+
+## Where's the build guide?
+
+As of now I haven't written a build guide. If you want to build this keyboard, just [get in touch with me](https://tarneo.fr) and I'll be happy to give you a parts list and some basic instructions.
+
+If you've already built other keyboards yourself, here are some specificities of this one:
+- Before soldering the XIAO in, bridge the `[> ]`-shaped pads below it (on the same side of the PCB, so that the XIAO covers the bridged pads).
+- When soldering the XIAO, use a short length of insulated wire to connect the battery pad on the PCB (just above the top pinky key) to the positive battery pad below the XIAO. This applies only to wireless builds.
 
 ## Credits
 
