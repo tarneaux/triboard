@@ -41,7 +41,7 @@ To make the routing process easier, you can route a single key (diode to via and
 
 ## Where's the build guide?
 
-As of now I haven't written a build guide. If you want to build this keyboard, just [get in touch with me](https://tarneo.fr) and I'll be happy to give you a parts list and some basic instructions.
+As of now I haven't written a build guide. If you want to build this keyboard, just [get in touch with me](https://tarneo.fr/contact/) and I'll be happy to give you a parts list and some basic instructions.
 
 If you've already built other keyboards yourself, here are some specificities of this one:
 - Before soldering the XIAO in, bridge the `[> ]`-shaped pads below it (on the same side of the PCB, so that the XIAO covers the bridged pads).
