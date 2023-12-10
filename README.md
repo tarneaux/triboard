@@ -6,8 +6,10 @@ The Triboard is an ergonomic, split mechanical keyboard using hotswappable Kailh
 
 Three builds are possible:
 - 34 keys, wireless, with ZMK on XIAO nRF52840 controllers
-- 36 keys, wired, with QMK on XIAO RP2040 controllers
+- 36 keys, wired, with QMK on XIAO RP2040 controllers (but see warning below)
 - 36 keys, wired, with KMK on XIAO ESP32C3 controllers
+
+> :warning: You won't be able to use an RP2040 as QMK doesn't support UART on RP2040 (yet). See [the driver status table](https://github.com/qmk/qmk_firmware/blob/master/docs/platformdev_rp2040.md).
 
 On the wireless version, one thumb keys needs to be removed on each half to fit the battery (therefore it is only 34 keys).
 
