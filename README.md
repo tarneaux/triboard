@@ -11,7 +11,7 @@ Three builds are possible:
 
 > :warning: You won't be able to use an RP2040 as QMK doesn't support UART on RP2040 (yet). See [the driver status table](https://github.com/qmk/qmk_firmware/blob/master/docs/platformdev_rp2040.md).
 
-On the wireless version, one thumb keys needs to be removed on each half to fit the battery (therefore it is only 34 keys).
+On the wireless version, one thumb key needs to be removed on each half to fit the battery (therefore it is only 34 keys).
 
 For now I have only tried a full build with ZMK but KMK seems to work well on ESP32C3 XIAOs.
 
