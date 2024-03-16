@@ -52,3 +52,4 @@ If you've already built other keyboards yourself, here are some specificities of
 - Inspiration: keyboards by [GEIGEIGEIST](https://github.com/GEIGEIGEIST), the [chocofi](https://github.com/pashutk/chocofi) and the [samoklava](https://github.com/wxsh/samoklava).
 - Videos by Ben Vallack on YouTube.
 - Kind people on the [ErgoMechKeyboards](https://lemmy.ml/c/ergomechkeyboards@lemmy.world) Lemmy community.
+- FlatFootFox - [Let's Design A Keyboard With Ergogen v4](https://flatfootfox.com/ergogen-introduction/)
