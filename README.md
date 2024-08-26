@@ -2,6 +2,8 @@
 
 The Triboard is an ergonomic, split mechanical keyboard using hotswappable Kailh Choc switches and any Seeed XIAO compatible controller. Its main feature is being super small and therefore portable, without compromising on ergonomics/usabitity.
 
+[Blog post](https://tarneo.fr/posts/triboard/)
+
 ![Picture](picture.jpg)
 
 Three builds are possible:
