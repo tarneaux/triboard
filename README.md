@@ -50,7 +50,7 @@ If you've already built other keyboards yourself, here are some specificities of
 - When soldering the XIAO, use a short length of insulated wire to connect the battery pad on the PCB (just above the top pinky key) to the positive battery pad below the XIAO. This applies only to wireless builds.
 
 Here's a parts list for a wireless build:
-- a pair of flippable PCB's
+- a pair of flippable PCB's (download gerbers from [releases](https://github.com/tarneaux/triboard/releases/))
 - [Seeed XIAO nrf52840 microcontroller](https://www.seeedstudio.com/Seeed-XIAO-BLE-nRF52840-p-5201.html)
 - A 3.7 v lithium ion battery with dimensions < 20x30 mm
 - [Power switches](https://splitkb.com/products/wireless-controller-expansion-bundle)
