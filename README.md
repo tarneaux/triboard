@@ -51,10 +51,10 @@ If you've already built other keyboards yourself, here are some specificities of
 
 Here's a parts list for a wireless build:
 - a pair of flippable PCB's (download gerbers from [releases](https://github.com/tarneaux/triboard/releases/))
-- [Seeed XIAO nrf52840 microcontroller](https://www.seeedstudio.com/Seeed-XIAO-BLE-nRF52840-p-5201.html)
-- A 3.7 v lithium ion battery with dimensions < 20x30 mm
-- [Power switches](https://splitkb.com/products/wireless-controller-expansion-bundle)
-- round rubber feet, ideally 10 (one per corner, plus one on the bottom middle for thumb key support)
+- 2 [Seeed XIAO nrf52840 microcontrollers](https://www.seeedstudio.com/Seeed-XIAO-BLE-nRF52840-p-5201.html)
+- 2 3.7 v lithium ion batteries with dimensions < 20x30 mm
+- 2 [Power switches](https://splitkb.com/products/wireless-controller-expansion-bundle)
+- A few round rubber feet, ideally 10 (one per corner, plus one on the bottom middle for thumb key support)
 - 4 7-pin rows of [Mill max sockets](https://splitkb.com/products/mill-max-low-profile-sockets)
 - For each key (34 if wireless, make sure to get a few extra of each):
   - 1 [diode](https://splitkb.com/products/smd-diodes)
