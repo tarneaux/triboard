@@ -12,7 +12,7 @@ Two builds are possible:
 
 > You *could* also theoretically use an ESP based XIAO with KMK and Bluetooth, but it'll be more troublesome than the other two.
 
-On the wireless version, one thumb key needs to be removed on each half to fit the battery (therefore it is only 34 keys).
+Wireless keyboards need to be stripped of one thumb key on each side to make room for the battery.
 
 For now I have only tried a full build with ZMK but KMK seems to work well on ESP32C3 XIAOs.
 
